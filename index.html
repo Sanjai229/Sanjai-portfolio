@@ -99,44 +99,63 @@ data quality and system design affect real-world performance.
 <h2>Projects</h2>
 
 <div class="project-box">
-    <p><strong>Speech Recognition System</strong></p>
+
+    <p><strong>Real-Time Speech Transcription & Gender Detection System</strong></p>
 
     <p>
-        Built an end-to-end speech recognition web application that converts user
-        speech into text and performs gender detection. The project focuses on
-        handling real audio input, backend processing, and model inference rather
-        than offline dataset experimentation.
+        <strong>Problem & Motivation</strong><br>
+        Most speech-based applications demonstrate transcription using pre-recorded
+        datasets, without addressing real-time microphone input or downstream audio
+        analytics. I wanted to build an end-to-end system that captures live speech
+        from a browser, performs transcription, and extracts speaker-level insights
+        under real-world constraints such as inconsistent audio formats and noise.
     </p>
 
     <p>
-        <strong>What I focused on:</strong><br>
-        – Audio capture and format consistency<br>
-        – Integrating Whisper for transcription<br>
-        – Managing noise and accent variation<br>
-        – End-to-end request flow from frontend to backend
+        <strong>System Design</strong><br>
+        The system uses a browser-based audio recorder to capture speech and send it
+        as a POST request to a Flask backend. The backend standardises the audio into
+        WAV format, performs speech-to-text transcription using Whisper, extracts MFCC
+        features from the same audio, and predicts speaker gender using a trained
+        Random Forest model. Results are returned as JSON and rendered dynamically
+        on the frontend.
+    </p>
+
+    <p>
+        <strong>Key Challenges</strong><br>
+        – Converting browser-recorded audio into a consistent WAV format for ML models<br>
+        – Ensuring feature consistency between MFCC extraction during training and inference<br>
+        – Debugging end-to-end failures across frontend, backend, and model layers
+    </p>
+
+    <p>
+        <strong>Trade-offs & Learnings</strong><br>
+        I prioritised robustness and system clarity over aggressive optimisation.
+        This project strengthened my understanding of audio preprocessing pipelines,
+        model integration in production-style systems, and how ML performance depends
+        heavily on data handling rather than model choice alone.
     </p>
 
     <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">Flask</span>
         <span class="tag">Whisper</span>
-        <span class="tag">Speech Processing</span>
+        <span class="tag">Audio Processing</span>
+        <span class="tag">Machine Learning Systems</span>
     </div>
 
     <p style="margin-top: 12px;">
         <a href="https://github.com/Sanjai229/Speech-recognition">
             View GitHub Repository →
         </a>
+        &nbsp;|&nbsp;
+        <a href="https://medium.com/@sanjaicena123/real-time-speech-transcription-and-gender-detection-web-application-c04429134c37">
+            Read Technical Blog →
+        </a>
     </p>
+
 </div>
 
-<h2>Learning Highlights</h2>
-
-<ul>
-    <li>Understood challenges of real-world audio data such as noise and accents</li>
-    <li>Learned how frontend and backend components communicate in ML systems</li>
-    <li>Gained experience deploying ML models as web applications</li>
-</ul>
 
 <h2>Blogs</h2>
 

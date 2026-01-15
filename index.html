@@ -60,6 +60,24 @@
             margin-top: 15px;
         }
 
+        /* Typography hierarchy for projects */
+        .project-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .project-section {
+            font-size: 15px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .project-box p {
+            font-size: 15px;
+        }
+
         .tags {
             margin-top: 10px;
         }
@@ -73,24 +91,8 @@
             font-size: 13px;
             color: #374151;
         }
-        .project-title {
-                     font-size: 18px;
-                     font-weight: 600;
-                     margin-bottom: 12px;
-        }
-
-        .project-section {
-                        font-size: 15px;
-                        font-weight: 600;
-                        color: #111827;
-        }
-
-        .project-box p {
-                      font-size: 15px;
-        }
     </style>
 </head>
-
 
 <body>
 
@@ -101,22 +103,22 @@ Focused on building end-to-end machine learning systems with real audio data
 and understanding their limitations in production-like settings.
 </p>
 
-    
 <h2>About</h2>
 <p>
 I build end-to-end machine learning systems with a focus on speech processing,
 data pipelines, and real-world deployment constraints.
 </p>
 
-
 <h2>Projects</h2>
 
 <div class="project-box">
 
-    <p><strong>Real-Time Speech Transcription & Gender Detection System</strong></p>
+    <p class="project-title">
+        Real-Time Speech Transcription & Gender Detection System
+    </p>
 
     <p>
-        <strong>Problem & Motivation</strong><br>
+        <span class="project-section">Problem & Motivation</span><br>
         Most speech-based applications demonstrate transcription using pre-recorded
         datasets, without addressing real-time microphone input or downstream audio
         analytics. I wanted to build an end-to-end system that captures live speech
@@ -125,7 +127,7 @@ data pipelines, and real-world deployment constraints.
     </p>
 
     <p>
-        <strong>System Design</strong><br>
+        <span class="project-section">System Design</span><br>
         The system uses a browser-based audio recorder to capture speech and send it
         as a POST request to a Flask backend. The backend standardises the audio into
         WAV format, performs speech-to-text transcription using Whisper, extracts MFCC
@@ -135,18 +137,18 @@ data pipelines, and real-world deployment constraints.
     </p>
 
     <p>
-        <strong>Key Challenges</strong><br>
+        <span class="project-section">Key Challenges</span><br>
         – Converting browser-recorded audio into a consistent WAV format for ML models<br>
         – Ensuring feature consistency between MFCC extraction during training and inference<br>
         – Debugging end-to-end failures across frontend, backend, and model layers
     </p>
 
     <p>
-        <strong>Trade-offs & Learnings</strong><br>
+        <span class="project-section">Trade-offs & Learnings</span><br>
         I prioritised robustness and system clarity over aggressive optimisation.
         This project strengthened my understanding of audio preprocessing pipelines,
         model integration in production-style systems, and how ML performance depends
-        heavily on data handling rather than model choice alone.
+        heavily on data handling rather than model choice alone in real-world systems.
     </p>
 
     <div class="tags">
@@ -169,19 +171,14 @@ data pipelines, and real-world deployment constraints.
 
 </div>
 
-
 <h2>Blogs</h2>
-
 <ul>
     <li>
         <a href="https://medium.com/@sanjaicena123/real-time-speech-transcription-and-gender-detection-web-application-c04429134c37">
-        Speech Recognition and Gender Detection System
+            Speech Recognition and Gender Detection System
         </a>
-
     </li>
 </ul>
-
-
 
 <h2>Connect</h2>
 <ul>

@@ -32,17 +32,10 @@
             border-bottom: 2px solid #e5e7eb;
         }
 
-        p {
-            font-size: 16px;
-            margin: 10px 0;
-        }
-
         a {
             color: #2563eb;
             text-decoration: none;
-            font-weight: 500;
         }
-
         a:hover {
             text-decoration: underline;
         }
@@ -92,15 +85,14 @@
             color: #374151;
         }
 
-        /* Flexbox container for images */
         .project-images {
             display: flex;
             gap: 12px;
-            margin-top: 12px;
+            margin-top: 14px;
             flex-wrap: wrap;
         }
         .project-images img {
-            width: calc(50% - 6px); /* two across */
+            width: calc(50% - 6px);
             border-radius: 8px;
         }
 
@@ -119,7 +111,7 @@
 <p class="subtitle">
 Master’s student in Data Science at Adelaide University.<br>
 Focused on building end-to-end machine learning systems with real audio data
-and understanding their limitations in production-like settings.
+and understanding their limitations in production‑like settings.
 </p>
 
 <h2>About</h2>
@@ -139,52 +131,47 @@ data pipelines, and real-world deployment constraints.
 
     <p>
         <span class="project-section">Problem & Motivation</span><br>
-        Most speech-based applications demonstrate transcription using pre-recorded
-        datasets without addressing real-time microphone input or real-time insights.
-        I wanted to build an end-to-end system that captures live speech from a browser,
-        performs transcription, and generates useful information such as speaker gender
-        under real-world audio constraints.
+        Most speech-based applications demonstrate transcription using pre‑recorded
+        datasets without addressing real-time microphone input or real‑world noise.
+        I wanted to build an end-to-end system that captures live speech from a
+        browser, transcribes it, and extracts speaker‑level insights such as gender
+        under real usage conditions.
     </p>
 
     <p>
         <span class="project-section">System Design</span><br>
-        A browser-based recorder captures speech and sends it to a Flask backend.
-        Audio is standardised into WAV format. Whisper is used for speech-to-text
-        transcription, and MFCC features are extracted for speaker-level analysis.
-        A trained Random Forest model predicts speaker gender. Results return as
-        structured JSON and are rendered on the frontend.
+        A browser audio recorder captures speech and sends it to a Flask backend,
+        where the audio is standardised to WAV format. Whisper transcribes the speech,
+        MFCC features are extracted, and a trained Random Forest model predicts
+        speaker gender. Results are returned as structured JSON and rendered in UI.
     </p>
 
     <p>
         <span class="project-section">Key Challenges</span><br>
         – Browser audio format inconsistency<br>
-        – Background noise and accents<br>
-        – End-to-end errors across frontend/backend/model integration
+        – Noise & accent variation<br>
+        – End-to-end debugging across frontend, backend, and models
     </p>
 
     <p>
         <span class="project-section">Trade-offs & Learnings</span><br>
-        I prioritised robust data handling and system clarity over squeezing accuracy.
-        This project improved my understanding of audio preprocessing, model
-        integration, and real-world inference behaviour.
+        I emphasised reliable data handling over optimising model accuracy. This
+        helped me understand how real-world audio quality impacts inference
+        behaviour more than algorithm choice.
     </p>
 
-    <!-- WHEN YOU UPLOAD SPEECH OUTPUT IMAGES -->
-    <!-- Example structure when images are added later -->
-    <!--
+    <!-- Optional: Show screenshots if uploaded -->
     <div class="project-images">
-        <img src="./assets/speech_output_1.png" alt="Speech Recognition Result 1">
-        <img src="./assets/speech_output_2.png" alt="Speech Recognition Result 2">
+        <img src="./assets/speech_output_1.png" alt="Speech Recognition Output 1">
+        <img src="./assets/speech_output_2.png" alt="Speech Recognition Output 2">
     </div>
-    <em class="caption">Screenshots showing real-time speech transcription and gender detection output.</em>
-    -->
+    <em class="caption">Real-time speech transcription and gender detection output.</em>
 
     <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">Flask</span>
         <span class="tag">Whisper</span>
         <span class="tag">Audio Processing</span>
-        <span class="tag">Machine Learning Systems</span>
     </div>
 
     <p style="margin-top: 12px;">
@@ -206,51 +193,48 @@ data pipelines, and real-world deployment constraints.
 
     <p>
         <span class="project-section">Problem & Motivation</span><br>
-        Customer churn is a critical business problem, but many machine learning projects
-        stop at model accuracy and notebooks without demonstrating how predictions are
-        consumed in real-world systems...
+        Customer churn is a critical business concern, but many ML projects end at
+        accuracy tables. I built a web churn predictor for real users, not just
+        code notebooks.
     </p>
 
     <p>
         <span class="project-section">System Design</span><br>
         A HTML form collects customer inputs and sends them to a FastAPI backend.
-        The backend scales and encodes features then uses a Random Forest classifier
-        to generate churn probabilities rendered in Jinja2 templates.
+        The backend applies scaling and encoding, then generates churn probabilities
+        with a trained Random Forest classifier shown via Jinja2 templates.
     </p>
 
     <p>
         <span class="project-section">Key Challenges</span><br>
-        – Ensuring exact feature name & ordering consistency<br>
-        – Handling encoding/scaling outside training pipeline<br>
-        – Debugging deployment-time form parsing & dependencies
+        – Feature name & ordering consistency<br>
+        – Manual encoding/scaling in inference<br>
+        – Deployment‑time parsing & dependency fixes
     </p>
 
     <p>
         <span class="project-section">Trade-offs & Learnings</span><br>
-        Explicit preprocessing improved robustness. Most ML deployment failures stem
-        from data mismatches rather than model choice.
+        Explicit preprocessing and debugging pipelines reduced deployment issues,
+        showing that most failures come from data mismatches, not the model itself.
     </p>
 
     <div class="project-images">
         <img src="./assets/churn_output_1.png" alt="Churn Prediction Result 1">
         <img src="./assets/churn_output_2.png" alt="Churn Prediction Result 2">
     </div>
-    <em class="caption">Customer churn prediction output: Web-based churn prediction with probability results.</em>
+    <em class="caption">Customer churn prediction output: web‑based prediction with probability scores.</em>
 
     <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">FastAPI</span>
         <span class="tag">Machine Learning</span>
         <span class="tag">Model Deployment</span>
-        <span class="tag">End-to-End ML Systems</span>
     </div>
 
     <p style="margin-top: 12px;">
         <a href="https://github.com/Sanjai229/Customer-Churn-Prediction">View GitHub →</a>
         &nbsp;|&nbsp;
-        <a href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f">
-            Read Technical Blog →
-        </a>
+        <a href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f">Read Technical Blog →</a>
     </p>
 
 </div>

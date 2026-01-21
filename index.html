@@ -32,11 +32,6 @@
             border-bottom: 2px solid #e5e7eb;
         }
 
-        p {
-            font-size: 16px;
-            margin: 10px 0;
-        }
-
         a {
             color: #2563eb;
             text-decoration: none;
@@ -55,12 +50,11 @@
 
         .project-box {
             background: #f9fafb;
-            padding: 20px;
+            padding: 22px;
             border-radius: 10px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
-        /* Typography hierarchy for projects */
         .project-title {
             font-size: 20px;
             font-weight: 700;
@@ -72,6 +66,7 @@
             font-size: 16px;
             font-weight: 600;
             color: #111827;
+            margin-top: 12px;
         }
 
         .project-box p {
@@ -79,7 +74,7 @@
         }
 
         .tags {
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         .tag {
@@ -92,17 +87,22 @@
             color: #374151;
         }
 
-        /* Flex container for side-by-side images */
+        /* Flexbox container for images */
         .project-images {
             display: flex;
-            gap: 12px; /* space between the two images */
+            gap: 12px;
             margin-top: 12px;
-            flex-wrap: wrap; /* wraps on smaller screens */
+        }
+        .project-images img {
+            width: calc(50% - 6px); /* two across */
+            border-radius: 8px;
         }
 
-        .project-images img {
-            width: calc(50% - 6px); /* two images side by side */
-            border-radius: 8px;
+        em.caption {
+            font-size: 14px;
+            color: #6b7280;
+            display: block;
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -124,68 +124,7 @@ data pipelines, and real-world deployment constraints.
 
 <h2>Projects</h2>
 
-<!-- Project 1 -->
-<div class="project-box">
-
-    <p class="project-title">
-        Speech Recognition and Gender Detection System
-    </p>
-
-    <p>
-        <span class="project-section">Problem & Motivation</span><br>
-        Most speech-based applications demonstrate transcription using pre-recorded
-        datasets, without addressing real-time microphone input or downstream audio
-        analytics. I wanted to build an end-to-end system that captures live speech
-        from a browser, performs transcription, and extracts speaker-level insights
-        under real-world constraints such as inconsistent audio formats and noise.
-    </p>
-
-    <p>
-        <span class="project-section">System Design</span><br>
-        The system uses a browser-based audio recorder to capture speech and send it
-        as a POST request to a Flask backend. The backend standardises the audio into
-        WAV format, performs speech-to-text transcription using Whisper, extracts MFCC
-        features from the same audio, and predicts speaker gender using a trained
-        Random Forest model. Results are returned as JSON and rendered dynamically
-        on the frontend.
-    </p>
-
-    <p>
-        <span class="project-section">Key Challenges</span><br>
-        – Converting browser-recorded audio into a consistent WAV format for ML models<br>
-        – Ensuring feature consistency between MFCC extraction during training and inference<br>
-        – Debugging end-to-end failures across frontend, backend, and model layers
-    </p>
-
-    <p>
-        <span class="project-section">Trade-offs & Learnings</span><br>
-        I prioritised robustness and system clarity over aggressive optimisation.
-        This project strengthened my understanding of audio preprocessing pipelines,
-        model integration in production-style systems, and how ML performance depends
-        heavily on data handling rather than model choice alone in real-world systems.
-    </p>
-
-    <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Flask</span>
-        <span class="tag">Whisper</span>
-        <span class="tag">Audio Processing</span>
-        <span class="tag">Machine Learning Systems</span>
-    </div>
-
-    <p style="margin-top: 12px;">
-        <a href="https://github.com/Sanjai229/Speech-recognition">
-            View GitHub Repository →
-        </a>
-        &nbsp;|&nbsp;
-        <a href="https://medium.com/@sanjaicena123/real-time-speech-transcription-and-gender-detection-web-application-c04429134c37">
-            Read Technical Blog →
-        </a>
-    </p>
-
-</div>
-
-<!-- Project 2 -->
+<!-- Project: Customer Churn -->
 <div class="project-box">
 
     <p class="project-title">
@@ -204,38 +143,29 @@ data pipelines, and real-world deployment constraints.
 
     <p>
         <span class="project-section">System Design</span><br>
-        The system follows a clear frontend–backend–model architecture. A HTML-based form
-        collects customer attributes and sends them as a POST request to a FastAPI backend.
-        The backend performs strict feature alignment, including numeric scaling using a
-        pre-fitted StandardScaler and manual one-hot encoding to exactly match the model’s
-        training schema. A trained Random Forest classifier is then used to generate churn
-        predictions and probabilities. Results are rendered back to the frontend using
-        Jinja2 templates and deployed as a public web service on Render.
+        A HTML form collects customer inputs and sends them to a FastAPI backend.
+        The backend scales and encodes features then uses a Random Forest classifier
+        to generate churn probabilities rendered in Jinja2 templates.
     </p>
 
     <p>
         <span class="project-section">Key Challenges</span><br>
-        – Ensuring exact feature name and ordering consistency between training and inference<br>
-        – Handling categorical encoding and numeric scaling outside the training pipeline<br>
-        – Debugging deployment-time failures related to missing dependencies and form parsing<br>
-        – Designing backend logic robust enough to handle partial or user-generated input
+        – Ensuring exact feature name & ordering consistency<br>
+        – Handling encoding/scaling outside training pipeline<br>
+        – Debugging deployment-time form parsing & dependencies
     </p>
 
     <p>
         <span class="project-section">Trade-offs & Learnings</span><br>
-        I prioritised correctness, debuggability, and production realism over rapid prototyping.
-        This meant explicitly managing preprocessing steps instead of relying on implicit
-        pipelines. The project deepened my understanding of how most ML deployment failures
-        arise not from model choice, but from feature mismatches, data handling, and
-        environment inconsistencies. It also strengthened my ability to debug full-stack ML
-        systems across frontend, backend, and deployment layers.
+        Explicit preprocessing improved robustness. Most ML deployment failures stem
+        from data mismatches rather than model choice.
     </p>
 
     <div class="project-images">
-        <img src="assets/churn_output_1.png" alt="Churn Prediction Result 1">
-        <img src="assets/churn_output_2.png" alt="Churn Prediction Result 2">
+        <img src="./assets/churn_output_1.png" alt="Churn Prediction Result 1">
+        <img src="./assets/churn_output_2.png" alt="Churn Prediction Result 2">
     </div>
-    <em>Customer churn prediction output: Web-based churn prediction with probability results for business users.</em>
+    <em class="caption">Customer churn prediction output: Web-based churn prediction with probability results.</em>
 
     <div class="tags">
         <span class="tag">Python</span>
@@ -246,29 +176,16 @@ data pipelines, and real-world deployment constraints.
     </div>
 
     <p style="margin-top: 12px;">
-        <a href="https://github.com/Sanjai229/Customer-Churn-Prediction">
-            View GitHub Repository →
-        </a>
+        <a href="https://github.com/Sanjai229/Customer-Churn-Prediction">View GitHub →</a>
         &nbsp;|&nbsp;
-        <a href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f">
-            Read Technical Blog →
-        </a>
+        <a href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f">Read Blog →</a>
     </p>
 
 </div>
 
 <h2>Blogs</h2>
 <ul>
-    <li>
-        <a href="https://medium.com/@sanjaicena123/real-time-speech-transcription-and-gender-detection-web-application-c04429134c37">
-            Speech Recognition and Gender Detection System
-        </a>
-    </li>
-    <li>
-        <a href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f">
-            Customer Churn Prediction
-        </a>
-    </li>
+    <li><a href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f">Customer Churn Prediction</a></li>
 </ul>
 
 <h2>Connect</h2>

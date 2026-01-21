@@ -60,7 +60,6 @@
             margin-top: 15px;
         }
 
-        /* Typography hierarchy for projects */
         .project-title {
             font-size: 20px;
             font-weight: 700;
@@ -92,15 +91,24 @@
             color: #374151;
         }
 
-        img.project-img {
-            width: 100%;
+        /* Flex container for side-by-side images */
+        .project-images {
+            display: flex;
+            gap: 12px;
             margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .project-images img {
+            width: calc(50% - 6px); /* two images side by side */
             border-radius: 8px;
         }
 
         em {
             font-size: 14px;
             color: #6b7280;
+            display: block;
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -168,10 +176,12 @@ data pipelines, and real-world deployment constraints.
         systems across frontend, backend, and deployment layers.
     </p>
 
-    <!-- Screenshots -->
-    <img src="assets/churn_output_1.png" alt="Churn Prediction Result 1" class="project-img">
-    <img src="assets/churn_output_2.png" alt="Churn Prediction Result 2" class="project-img">
-    <p><em>Customer churn prediction output: Web-based churn prediction with probability results for business users.</em></p>
+    <!-- Screenshots side by side -->
+    <div class="project-images">
+        <img src="assets/churn_output_1.png" alt="Churn Prediction Result 1">
+        <img src="assets/churn_output_2.png" alt="Churn Prediction Result 2">
+    </div>
+    <em>Customer churn prediction output: Web-based churn prediction with probability results for business users.</em>
 
     <div class="tags">
         <span class="tag">Python</span>

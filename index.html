@@ -32,6 +32,11 @@
             border-bottom: 2px solid #e5e7eb;
         }
 
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
         a {
             color: #2563eb;
             text-decoration: none;
@@ -92,6 +97,7 @@
             display: flex;
             gap: 12px;
             margin-top: 12px;
+            flex-wrap: wrap;
         }
         .project-images img {
             width: calc(50% - 6px); /* two across */
@@ -124,7 +130,74 @@ data pipelines, and real-world deployment constraints.
 
 <h2>Projects</h2>
 
-<!-- Project: Customer Churn -->
+<!-- ================= PROJECT 1 ================= -->
+<div class="project-box">
+
+    <p class="project-title">
+        Speech Recognition and Gender Detection System
+    </p>
+
+    <p>
+        <span class="project-section">Problem & Motivation</span><br>
+        Most speech-based applications demonstrate transcription using pre-recorded
+        datasets without addressing real-time microphone input or real-time insights.
+        I wanted to build an end-to-end system that captures live speech from a browser,
+        performs transcription, and generates useful information such as speaker gender
+        under real-world audio constraints.
+    </p>
+
+    <p>
+        <span class="project-section">System Design</span><br>
+        A browser-based recorder captures speech and sends it to a Flask backend.
+        Audio is standardised into WAV format. Whisper is used for speech-to-text
+        transcription, and MFCC features are extracted for speaker-level analysis.
+        A trained Random Forest model predicts speaker gender. Results return as
+        structured JSON and are rendered on the frontend.
+    </p>
+
+    <p>
+        <span class="project-section">Key Challenges</span><br>
+        – Browser audio format inconsistency<br>
+        – Background noise and accents<br>
+        – End-to-end errors across frontend/backend/model integration
+    </p>
+
+    <p>
+        <span class="project-section">Trade-offs & Learnings</span><br>
+        I prioritised robust data handling and system clarity over squeezing accuracy.
+        This project improved my understanding of audio preprocessing, model
+        integration, and real-world inference behaviour.
+    </p>
+
+    <!-- WHEN YOU UPLOAD SPEECH OUTPUT IMAGES -->
+    <!-- Example structure when images are added later -->
+    <!--
+    <div class="project-images">
+        <img src="./assets/speech_output_1.png" alt="Speech Recognition Result 1">
+        <img src="./assets/speech_output_2.png" alt="Speech Recognition Result 2">
+    </div>
+    <em class="caption">Screenshots showing real-time speech transcription and gender detection output.</em>
+    -->
+
+    <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Flask</span>
+        <span class="tag">Whisper</span>
+        <span class="tag">Audio Processing</span>
+        <span class="tag">Machine Learning Systems</span>
+    </div>
+
+    <p style="margin-top: 12px;">
+        <a href="https://github.com/Sanjai229/Speech-recognition">View GitHub →</a>
+        &nbsp;|&nbsp;
+        <a href="https://medium.com/@sanjaicena123/real-time-speech-transcription-and-gender-detection-web-application-c04429134c37">
+            Read Technical Blog →
+        </a>
+    </p>
+
+</div>
+
+<!-- ================= PROJECT 2 ================= -->
 <div class="project-box">
 
     <p class="project-title">
@@ -135,10 +208,7 @@ data pipelines, and real-world deployment constraints.
         <span class="project-section">Problem & Motivation</span><br>
         Customer churn is a critical business problem, but many machine learning projects
         stop at model accuracy and notebooks without demonstrating how predictions are
-        consumed in real-world systems. I wanted to build a production-style churn
-        prediction application that not only trains a reliable ML model, but also exposes
-        it through a public web interface where non-technical users can input customer
-        details and receive interpretable churn predictions in real time.
+        consumed in real-world systems...
     </p>
 
     <p>
@@ -178,14 +248,23 @@ data pipelines, and real-world deployment constraints.
     <p style="margin-top: 12px;">
         <a href="https://github.com/Sanjai229/Customer-Churn-Prediction">View GitHub →</a>
         &nbsp;|&nbsp;
-        <a href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f">Read Blog →</a>
+        <a href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f">
+            Read Technical Blog →
+        </a>
     </p>
 
 </div>
 
 <h2>Blogs</h2>
 <ul>
-    <li><a href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f">Customer Churn Prediction</a></li>
+    <li><a href="https://medium.com/@sanjaicena123/real-time-speech-transcription-and-gender-detection-web-application-c04429134c37">
+            Speech Recognition and Gender Detection System
+        </a>
+    </li>
+    <li><a href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f">
+            Customer Churn Prediction
+        </a>
+    </li>
 </ul>
 
 <h2>Connect</h2>

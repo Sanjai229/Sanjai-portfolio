@@ -60,6 +60,7 @@
             margin-top: 15px;
         }
 
+        /* Typography hierarchy for projects */
         .project-title {
             font-size: 20px;
             font-weight: 700;
@@ -94,21 +95,14 @@
         /* Flex container for side-by-side images */
         .project-images {
             display: flex;
-            gap: 12px;
+            gap: 12px; /* space between the two images */
             margin-top: 12px;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* wraps on smaller screens */
         }
 
         .project-images img {
             width: calc(50% - 6px); /* two images side by side */
             border-radius: 8px;
-        }
-
-        em {
-            font-size: 14px;
-            color: #6b7280;
-            display: block;
-            margin-top: 8px;
         }
     </style>
 </head>
@@ -130,7 +124,68 @@ data pipelines, and real-world deployment constraints.
 
 <h2>Projects</h2>
 
-<!-- Project 2: Customer Churn -->
+<!-- Project 1 -->
+<div class="project-box">
+
+    <p class="project-title">
+        Speech Recognition and Gender Detection System
+    </p>
+
+    <p>
+        <span class="project-section">Problem & Motivation</span><br>
+        Most speech-based applications demonstrate transcription using pre-recorded
+        datasets, without addressing real-time microphone input or downstream audio
+        analytics. I wanted to build an end-to-end system that captures live speech
+        from a browser, performs transcription, and extracts speaker-level insights
+        under real-world constraints such as inconsistent audio formats and noise.
+    </p>
+
+    <p>
+        <span class="project-section">System Design</span><br>
+        The system uses a browser-based audio recorder to capture speech and send it
+        as a POST request to a Flask backend. The backend standardises the audio into
+        WAV format, performs speech-to-text transcription using Whisper, extracts MFCC
+        features from the same audio, and predicts speaker gender using a trained
+        Random Forest model. Results are returned as JSON and rendered dynamically
+        on the frontend.
+    </p>
+
+    <p>
+        <span class="project-section">Key Challenges</span><br>
+        – Converting browser-recorded audio into a consistent WAV format for ML models<br>
+        – Ensuring feature consistency between MFCC extraction during training and inference<br>
+        – Debugging end-to-end failures across frontend, backend, and model layers
+    </p>
+
+    <p>
+        <span class="project-section">Trade-offs & Learnings</span><br>
+        I prioritised robustness and system clarity over aggressive optimisation.
+        This project strengthened my understanding of audio preprocessing pipelines,
+        model integration in production-style systems, and how ML performance depends
+        heavily on data handling rather than model choice alone in real-world systems.
+    </p>
+
+    <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Flask</span>
+        <span class="tag">Whisper</span>
+        <span class="tag">Audio Processing</span>
+        <span class="tag">Machine Learning Systems</span>
+    </div>
+
+    <p style="margin-top: 12px;">
+        <a href="https://github.com/Sanjai229/Speech-recognition">
+            View GitHub Repository →
+        </a>
+        &nbsp;|&nbsp;
+        <a href="https://medium.com/@sanjaicena123/real-time-speech-transcription-and-gender-detection-web-application-c04429134c37">
+            Read Technical Blog →
+        </a>
+    </p>
+
+</div>
+
+<!-- Project 2 -->
 <div class="project-box">
 
     <p class="project-title">
@@ -176,7 +231,6 @@ data pipelines, and real-world deployment constraints.
         systems across frontend, backend, and deployment layers.
     </p>
 
-    <!-- Screenshots side by side -->
     <div class="project-images">
         <img src="assets/churn_output_1.png" alt="Churn Prediction Result 1">
         <img src="assets/churn_output_2.png" alt="Churn Prediction Result 2">
@@ -205,6 +259,11 @@ data pipelines, and real-world deployment constraints.
 
 <h2>Blogs</h2>
 <ul>
+    <li>
+        <a href="https://medium.com/@sanjaicena123/real-time-speech-transcription-and-gender-detection-web-application-c04429134c37">
+            Speech Recognition and Gender Detection System
+        </a>
+    </li>
     <li>
         <a href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f">
             Customer Churn Prediction

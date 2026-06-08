@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <title>Sanjai Arul — Data Science Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg:        #0d0f14;
-      --surface:   #13161d;
-      --border:    #1e2330;
-      --text:      #e8eaf0;
-      --muted:     #7a8097;
-      --accent:    #5b8df6;
-      --accent2:   #a78bfa;
-      --accent3:   #34d399;
-      --warm:      #fbbf24;
+      --bg:        #faf8f5;
+      --bg2:       #f3f0ea;
+      --surface:   #ffffff;
+      --border:    #e8e2d9;
+      --text:      #1a1612;
+      --muted:     #7a7060;
+      --accent:    #c45c2a;
+      --accent2:   #3a6b9f;
+      --accent3:   #2a7a4f;
+      --warm:      #b8860b;
+      --tag-bg:    #f0ece4;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -31,38 +32,27 @@
       overflow-x: hidden;
     }
 
-    /* ── Grain overlay ── */
+    /* ── Subtle texture dots ── */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.6;
-    }
-
-    /* ── Ambient glow ── */
-    .glow-1 {
-      position: fixed;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(91,141,246,0.07) 0%, transparent 70%);
-      top: -150px; left: -150px;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .glow-2 {
-      position: fixed;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(167,139,250,0.06) 0%, transparent 70%);
-      bottom: -100px; right: -100px;
+      background-image: radial-gradient(circle, #c8b89a 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.18;
       pointer-events: none;
       z-index: 0;
     }
 
-    /* ── Layout ── */
+    /* ── Top colour band ── */
+    .top-band {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+      z-index: 100;
+    }
+
     .wrapper {
       position: relative;
       z-index: 1;
@@ -73,44 +63,44 @@
 
     /* ── Header ── */
     header {
-      margin-bottom: 80px;
-      animation: fadeUp 0.7s ease both;
+      margin-bottom: 72px;
+      animation: fadeUp 0.6s ease both;
     }
 
     .name {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(42px, 7vw, 68px);
-      line-height: 1.05;
-      letter-spacing: -1px;
+      font-family: 'Fraunces', serif;
+      font-size: clamp(48px, 8vw, 76px);
+      line-height: 1.0;
+      letter-spacing: -2px;
       color: var(--text);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    .name span {
+    .name em {
+      font-style: italic;
       color: var(--accent);
     }
 
     .tagline {
-      font-size: 17px;
+      font-size: 16.5px;
       color: var(--muted);
       font-weight: 300;
-      max-width: 500px;
-      line-height: 1.7;
-      margin-bottom: 32px;
+      max-width: 480px;
+      line-height: 1.75;
+      margin-bottom: 28px;
     }
 
     .status-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(52,211,153,0.08);
-      border: 1px solid rgba(52,211,153,0.2);
+      background: #edf5ee;
+      border: 1px solid #b8ddc0;
       color: var(--accent3);
-      padding: 6px 14px;
+      padding: 6px 16px;
       border-radius: 999px;
       font-size: 13px;
       font-weight: 500;
-      letter-spacing: 0.02em;
     }
 
     .status-dot {
@@ -120,18 +110,18 @@
       animation: pulse 2s infinite;
     }
 
-    /* ── Section headings ── */
+    /* ── Section label ── */
     .section-label {
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      animation: fadeUp 0.7s ease 0.1s both;
+      gap: 14px;
+      animation: fadeUp 0.6s ease 0.1s both;
     }
 
     .section-label::after {
@@ -146,8 +136,8 @@
       font-size: 16px;
       color: var(--muted);
       line-height: 1.85;
-      max-width: 640px;
-      animation: fadeUp 0.7s ease 0.15s both;
+      max-width: 620px;
+      animation: fadeUp 0.6s ease 0.15s both;
       margin-bottom: 80px;
     }
 
@@ -157,59 +147,44 @@
     }
 
     /* ── Project cards ── */
-    .projects-section {
-      margin-bottom: 80px;
-    }
+    .projects-section { margin-bottom: 80px; }
 
     .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 36px;
+      border-radius: 20px;
+      padding: 40px;
       margin-bottom: 28px;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-      animation: fadeUp 0.7s ease both;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      animation: fadeUp 0.6s ease both;
       position: relative;
       overflow: hidden;
     }
 
-    .project-card::before {
+    .project-card::after {
       content: '';
       position: absolute;
-      inset: 0;
-      border-radius: 16px;
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
+      top: 0; left: 0;
+      width: 5px;
+      height: 100%;
+      border-radius: 20px 0 0 20px;
     }
 
-    .project-card.card-blue::before {
-      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(91,141,246,0.04), transparent 40%);
-    }
-
-    .project-card.card-purple::before {
-      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(167,139,250,0.04), transparent 40%);
-    }
+    .project-card.card-orange::after { background: var(--accent); }
+    .project-card.card-blue::after   { background: var(--accent2); }
 
     .project-card:hover {
-      border-color: rgba(91,141,246,0.3);
-      transform: translateY(-3px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.09);
+      border-color: #d4cfc6;
     }
 
-    .project-card:hover::before {
-      opacity: 1;
-    }
-
-    /* Card number */
     .card-number {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Fraunces', serif;
       font-size: 13px;
       color: var(--muted);
-      letter-spacing: 0.05em;
-      margin-bottom: 16px;
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -217,26 +192,27 @@
 
     .card-number::after {
       content: '';
-      width: 30px; height: 1px;
+      width: 28px; height: 1px;
       background: var(--border);
     }
 
     .project-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 26px;
+      font-family: 'Fraunces', serif;
+      font-size: 27px;
       color: var(--text);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       line-height: 1.2;
+      font-weight: 500;
     }
 
     .project-subtitle {
       font-size: 14px;
       color: var(--muted);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       font-weight: 300;
+      line-height: 1.6;
     }
 
-    /* Row layout inside card */
     .card-body {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -244,8 +220,9 @@
       margin-bottom: 28px;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 620px) {
       .card-body { grid-template-columns: 1fr; }
+      .project-card { padding: 28px 24px; }
     }
 
     .card-section-title {
@@ -253,18 +230,18 @@
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
       margin-bottom: 10px;
     }
 
-    .card-section-title.purple { color: var(--accent2); }
-    .card-section-title.green  { color: var(--accent3); }
-    .card-section-title.warm   { color: var(--warm); }
+    .orange { color: var(--accent);  }
+    .blue   { color: var(--accent2); }
+    .green  { color: var(--accent3); }
+    .warm   { color: var(--warm);    }
 
     .card-text {
       font-size: 14.5px;
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.78;
     }
 
     .card-text strong {
@@ -272,43 +249,46 @@
       font-weight: 500;
     }
 
-    /* Metrics row */
+    .card-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+
+    /* ── Metrics ── */
     .metrics-row {
       display: flex;
-      gap: 20px;
+      gap: 14px;
       margin: 20px 0 28px;
       flex-wrap: wrap;
     }
 
     .metric-box {
-      background: rgba(91,141,246,0.06);
-      border: 1px solid rgba(91,141,246,0.15);
-      border-radius: 10px;
-      padding: 12px 18px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 20px;
       text-align: center;
       min-width: 90px;
+      transition: border-color 0.2s;
     }
 
-    .metric-box.purple {
-      background: rgba(167,139,250,0.06);
-      border-color: rgba(167,139,250,0.15);
-    }
-
-    .metric-box.green {
-      background: rgba(52,211,153,0.06);
-      border-color: rgba(52,211,153,0.15);
-    }
+    .metric-box:hover { border-color: var(--accent); }
+    .metric-box.b { }
+    .metric-box.b:hover { border-color: var(--accent2); }
+    .metric-box.g:hover { border-color: var(--accent3); }
 
     .metric-val {
-      font-family: 'DM Serif Display', serif;
-      font-size: 22px;
+      font-family: 'Fraunces', serif;
+      font-size: 24px;
       color: var(--text);
       line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
 
-    .metric-box.purple .metric-val { color: var(--accent2); }
-    .metric-box.green  .metric-val { color: var(--accent3); }
+    .metric-box.o .metric-val { color: var(--accent);  }
+    .metric-box.b .metric-val { color: var(--accent2); }
+    .metric-box.g .metric-val { color: var(--accent3); }
 
     .metric-label {
       font-size: 11px;
@@ -317,41 +297,38 @@
       letter-spacing: 0.08em;
     }
 
-    /* Screenshots */
+    /* ── Screenshots ── */
     .screenshots {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
       margin-bottom: 28px;
-      border-radius: 10px;
-      overflow: hidden;
     }
 
-    .screenshots.two-col {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .screenshots.two-col { grid-template-columns: repeat(2, 1fr); }
 
     .screenshots img {
       width: 100%;
-      height: 160px;
+      height: 155px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 10px;
       border: 1px solid var(--border);
-      transition: transform 0.3s, border-color 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
       display: block;
+      background: var(--bg2);
     }
 
     .screenshots img:hover {
-      transform: scale(1.02);
-      border-color: rgba(91,141,246,0.4);
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
     }
 
-    /* Tags */
+    /* ── Tags ── */
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
+      gap: 7px;
+      margin-bottom: 26px;
     }
 
     .tag {
@@ -359,18 +336,23 @@
       border-radius: 999px;
       font-size: 12px;
       font-weight: 500;
-      letter-spacing: 0.02em;
+      background: var(--tag-bg);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      transition: background 0.2s, color 0.2s;
     }
 
-    .tag-blue   { background: rgba(91,141,246,0.1);  color: #93b4f8; border: 1px solid rgba(91,141,246,0.2); }
-    .tag-purple { background: rgba(167,139,250,0.1); color: #c4b5fd; border: 1px solid rgba(167,139,250,0.2); }
-    .tag-green  { background: rgba(52,211,153,0.1);  color: #6ee7b7; border: 1px solid rgba(52,211,153,0.2); }
-    .tag-warm   { background: rgba(251,191,36,0.1);  color: #fcd34d; border: 1px solid rgba(251,191,36,0.2); }
+    .tag:hover { background: var(--border); color: var(--text); }
 
-    /* Links */
+    .tag-o { background: #fdf0ea; color: #a04820; border-color: #f0c8b0; }
+    .tag-b { background: #eaf0f8; color: #2a5080; border-color: #b0cce8; }
+    .tag-g { background: #eaf5ee; color: #1a6038; border-color: #a8d8b8; }
+    .tag-w { background: #f8f2e0; color: #7a5a00; border-color: #e0ce90; }
+
+    /* ── Links ── */
     .card-links {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
@@ -382,42 +364,28 @@
       font-weight: 500;
       color: var(--muted);
       text-decoration: none;
-      padding: 8px 16px;
+      padding: 9px 18px;
       border: 1px solid var(--border);
-      border-radius: 8px;
-      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      border-radius: 10px;
+      background: var(--bg2);
+      transition: all 0.2s;
     }
 
     .card-link:hover {
       color: var(--text);
-      border-color: rgba(91,141,246,0.4);
-      background: rgba(91,141,246,0.06);
+      border-color: var(--accent);
+      background: #fdf0ea;
     }
 
-    .card-link svg {
-      width: 14px; height: 14px;
-      flex-shrink: 0;
-    }
+    .card-link svg { width: 14px; height: 14px; flex-shrink: 0; }
 
-    /* Divider line between sections */
-    .card-divider {
-      height: 1px;
-      background: var(--border);
-      margin: 24px 0;
-    }
-
-    /* ── Blog section ── */
+    /* ── Blog ── */
     .blog-section {
       margin-bottom: 80px;
-      animation: fadeUp 0.7s ease 0.25s both;
+      animation: fadeUp 0.6s ease 0.25s both;
     }
 
-    .blog-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+    .blog-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 
     .blog-list li a {
       display: flex;
@@ -427,17 +395,16 @@
       padding: 18px 22px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 12px;
       text-decoration: none;
       color: var(--text);
       font-size: 15px;
-      font-weight: 400;
-      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      transition: all 0.2s;
     }
 
     .blog-list li a:hover {
-      border-color: rgba(91,141,246,0.3);
-      background: rgba(91,141,246,0.04);
+      border-color: var(--accent);
+      background: #fdf0ea;
       transform: translateX(4px);
     }
 
@@ -448,79 +415,71 @@
     }
 
     /* ── Connect ── */
-    .connect-section {
-      animation: fadeUp 0.7s ease 0.3s both;
-    }
+    .connect-section { animation: fadeUp 0.6s ease 0.3s both; }
 
-    .connect-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .connect-links { display: flex; gap: 10px; flex-wrap: wrap; }
 
     .connect-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border: 1px solid var(--border);
       border-radius: 10px;
       color: var(--muted);
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
-      transition: all 0.2s;
       background: var(--surface);
+      transition: all 0.2s;
     }
 
     .connect-link:hover {
       color: var(--text);
-      border-color: rgba(91,141,246,0.4);
-      background: rgba(91,141,246,0.06);
+      border-color: var(--accent);
+      background: #fdf0ea;
       transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
     }
 
     /* ── Footer ── */
     footer {
       margin-top: 100px;
-      padding-top: 32px;
+      padding-top: 28px;
       border-top: 1px solid var(--border);
       text-align: center;
       color: var(--muted);
       font-size: 13px;
-      animation: fadeUp 0.7s ease 0.35s both;
+      animation: fadeUp 0.6s ease 0.35s both;
     }
 
     /* ── Animations ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes pulse {
       0%, 100% { opacity: 1; }
-      50%       { opacity: 0.4; }
+      50%       { opacity: 0.35; }
     }
 
-    /* Stagger cards */
     .project-card:nth-child(1) { animation-delay: 0.2s; }
-    .project-card:nth-child(2) { animation-delay: 0.35s; }
+    .project-card:nth-child(2) { animation-delay: 0.32s; }
   </style>
 </head>
 
 <body>
-  <div class="glow-1"></div>
-  <div class="glow-2"></div>
+  <div class="top-band"></div>
 
   <div class="wrapper">
 
-    <!-- ── Header ── -->
+    <!-- Header -->
     <header>
-      <h1 class="name">Sanjai <span>Arul</span></h1>
+      <h1 class="name">Sanjai <em>Arul</em></h1>
       <p class="tagline">
         Master's student in Data Science at Adelaide University —
-        building end-to-end machine learning systems and deploying
-        LLMs in real-world applications.
+        building end-to-end ML systems and deploying LLMs in real-world applications.
       </p>
       <div class="status-pill">
         <span class="status-dot"></span>
@@ -528,11 +487,11 @@
       </div>
     </header>
 
-    <!-- ── About ── -->
+    <!-- About -->
     <section>
       <p class="section-label">About</p>
       <p class="about-text">
-        I build <strong>end-to-end ML systems</strong> with a focus on
+        I build <strong>end-to-end machine learning systems</strong> with a focus on
         large language models, speech processing, and real-world deployment constraints.
         My work sits at the intersection of research and engineering —
         I care as much about <strong>how a system fails</strong> as how it succeeds.
@@ -541,12 +500,12 @@
       </p>
     </section>
 
-    <!-- ── Projects ── -->
+    <!-- Projects -->
     <section class="projects-section">
       <p class="section-label">Projects</p>
 
       <!-- PROJECT 1: LLM eCommerce -->
-      <div class="project-card card-blue">
+      <div class="project-card card-orange">
         <div class="card-number">01</div>
         <h2 class="project-title">LLM-based eCommerce Application</h2>
         <p class="project-subtitle">
@@ -556,24 +515,24 @@
 
         <div class="card-body">
           <div>
-            <p class="card-section-title">Problem & Motivation</p>
+            <p class="card-section-title orange">Problem & Motivation</p>
             <p class="card-text">
-              Running a phone store means juggling hundreds of product images,
+              Running a phone store means managing hundreds of product images,
               720 product records, and nearly 68,000 customer reviews.
               Traditional tools — SQL, manual tagging, spreadsheets — don't scale
               and can't understand natural language. I built three LLM agents to
-              automate the entire pipeline from ad creation to business intelligence.
+              automate the full pipeline from ad creation to business intelligence.
             </p>
           </div>
           <div>
-            <p class="card-section-title purple">System Design</p>
+            <p class="card-section-title blue">System Design</p>
             <p class="card-text">
               <strong>Task 1</strong> — BLIP2 scans images, generates captions,
               and matches owner queries. Qwen2-VL writes tone-controlled slogans
               overlaid on product images using PIL.<br><br>
               <strong>Task 2</strong> — TableLLM-7B interprets natural language
-              phone queries over a pandas-enriched dataset. Qwen3-1.7B provides
-              richer recommendation explanations via a Gradio GUI.<br><br>
+              queries over an enriched dataset. Qwen3-1.7B provides richer
+              recommendation explanations via a Gradio GUI.<br><br>
               <strong>Task 3</strong> — Qwen3-4B classifies all reviews as
               Positive / Neutral / Negative, summarises top feedback themes,
               and generates grounded product improvement suggestions.
@@ -581,22 +540,21 @@
           </div>
         </div>
 
-        <!-- Metrics -->
-        <p class="card-section-title green">Task 3 Results</p>
+        <p class="card-section-title green">Task 3 — Sentiment Analysis Results</p>
         <div class="metrics-row">
-          <div class="metric-box">
+          <div class="metric-box o">
             <div class="metric-val">88%</div>
             <div class="metric-label">Accuracy</div>
           </div>
-          <div class="metric-box purple">
+          <div class="metric-box b">
             <div class="metric-val">87.51%</div>
             <div class="metric-label">F1 Score</div>
           </div>
-          <div class="metric-box green">
+          <div class="metric-box g">
             <div class="metric-val">92.31%</div>
             <div class="metric-label">Purchase Acc.</div>
           </div>
-          <div class="metric-box">
+          <div class="metric-box o">
             <div class="metric-val">100%</div>
             <div class="metric-label">Verified Rate</div>
           </div>
@@ -615,37 +573,34 @@
             </p>
           </div>
           <div>
-            <p class="card-section-title">Trade-offs & Learnings</p>
+            <p class="card-section-title orange">Trade-offs & Learnings</p>
             <p class="card-text">
               Model selection must match task type — BLIP2 excels at captioning
-              but struggles with creative generation. Specialised models like
-              TableLLM outperform general models on structured tasks.
-              The key insight: LLMs interpret ambiguous natural language
-              that SQL simply cannot handle.
+              but struggles with creative generation. The key insight: LLMs
+              interpret ambiguous natural language that SQL simply cannot handle.
+              A single Qwen3-4B model simultaneously classified, summarised,
+              and generated insights in one inference pass.
             </p>
           </div>
         </div>
 
-        <!-- Screenshots -->
         <div class="screenshots">
-          <img src="./assets/Screenshot 2026-06-06 222535.png"  alt="LLM eCommerce Advertisement Agent Output">
-          <img src="./assets/Screenshot 2026-06-06 224215.png"  alt="LLM eCommerce Recommendation Agent Output">
-          <img src="./assets/Screenshot 2026-06-06 225511.png"  alt="LLM eCommerce Review Analysis Output">
+          <img src="./assets/Screenshot 2026-06-06 222535.png" alt="Advertisement Agent Output">
+          <img src="./assets/Screenshot 2026-06-06 224215.png" alt="Recommendation Agent Output">
+          <img src="./assets/Screenshot 2026-06-06 225511.png" alt="Review Analysis Output">
         </div>
 
-        <!-- Tags -->
         <div class="tags">
-          <span class="tag tag-blue">Python</span>
-          <span class="tag tag-blue">BLIP2</span>
-          <span class="tag tag-blue">Qwen2-VL</span>
-          <span class="tag tag-purple">TableLLM-7B</span>
-          <span class="tag tag-purple">Qwen3-4B</span>
-          <span class="tag tag-green">Gradio</span>
-          <span class="tag tag-green">PyTorch</span>
-          <span class="tag tag-warm">Google Colab A100</span>
+          <span class="tag tag-o">BLIP2</span>
+          <span class="tag tag-o">Qwen2-VL</span>
+          <span class="tag tag-b">TableLLM-7B</span>
+          <span class="tag tag-b">Qwen3-4B</span>
+          <span class="tag tag-g">Gradio</span>
+          <span class="tag tag-g">PyTorch</span>
+          <span class="tag tag-w">Google Colab A100</span>
+          <span class="tag tag-w">Python</span>
         </div>
 
-        <!-- Links -->
         <div class="card-links">
           <a class="card-link" href="https://github.com/Sanjai229" target="_blank">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
@@ -659,26 +614,26 @@
       </div>
 
       <!-- PROJECT 2: Customer Churn -->
-      <div class="project-card card-purple">
+      <div class="project-card card-blue">
         <div class="card-number">02</div>
         <h2 class="project-title">Customer Churn Prediction</h2>
         <p class="project-subtitle">
-          Web application that gives non-technical users real-time churn predictions
+          Web application giving non-technical users real-time churn predictions
           via a FastAPI backend and Random Forest classifier
         </p>
 
         <div class="card-body">
           <div>
-            <p class="card-section-title purple">Problem & Motivation</p>
+            <p class="card-section-title blue">Problem & Motivation</p>
             <p class="card-text">
               Customer churn predictions rarely make it into real systems.
-              I built a web app where non-technical business users can input
+              I built a web app where non-technical business users input
               customer details through a form and receive real-time churn
               probability — bridging the gap between ML model and business decision.
             </p>
           </div>
           <div>
-            <p class="card-section-title">System Design</p>
+            <p class="card-section-title orange">System Design</p>
             <p class="card-text">
               An HTML form collects customer inputs and sends them to a
               <strong>FastAPI backend</strong> where features are scaled and encoded.
@@ -693,7 +648,7 @@
             <p class="card-section-title warm">Key Challenges</p>
             <p class="card-text">
               — Feature name consistency between training and serving<br>
-              — Manual preprocessing pipeline<br>
+              — Manual preprocessing pipeline reliability<br>
               — Deployment-time parsing and dependency issues
             </p>
           </div>
@@ -713,12 +668,12 @@
         </div>
 
         <div class="tags">
-          <span class="tag tag-purple">Python</span>
-          <span class="tag tag-purple">FastAPI</span>
-          <span class="tag tag-blue">Random Forest</span>
-          <span class="tag tag-blue">Scikit-learn</span>
-          <span class="tag tag-green">Jinja2</span>
-          <span class="tag tag-warm">Model Deployment</span>
+          <span class="tag tag-b">Python</span>
+          <span class="tag tag-b">FastAPI</span>
+          <span class="tag tag-o">Random Forest</span>
+          <span class="tag tag-o">Scikit-learn</span>
+          <span class="tag tag-g">Jinja2</span>
+          <span class="tag tag-w">Model Deployment</span>
         </div>
 
         <div class="card-links">
@@ -735,7 +690,7 @@
 
     </section>
 
-    <!-- ── Blogs ── -->
+    <!-- Writing -->
     <section class="blog-section">
       <p class="section-label">Writing</p>
       <ul class="blog-list">
@@ -760,20 +715,20 @@
       </ul>
     </section>
 
-    <!-- ── Connect ── -->
+    <!-- Connect -->
     <section class="connect-section">
       <p class="section-label">Connect</p>
       <div class="connect-links">
         <a class="connect-link" href="https://github.com/Sanjai229" target="_blank">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           GitHub
         </a>
         <a class="connect-link" href="https://www.linkedin.com/in/sanjaiarul/" target="_blank">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
         </a>
         <a class="connect-link" href="https://medium.com/@sanjaicena123" target="_blank">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
           Medium
         </a>
       </div>
@@ -784,18 +739,5 @@
     </footer>
 
   </div>
-
-  <script>
-    // Subtle card mouse-tracking glow
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty('--mouse-x', x + '%');
-        card.style.setProperty('--mouse-y', y + '%');
-      });
-    });
-  </script>
 </body>
 </html>

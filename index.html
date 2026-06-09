@@ -8,17 +8,17 @@
 
   <style>
     :root {
-      --bg:        #faf8f5;
-      --bg2:       #f3f0ea;
-      --surface:   #ffffff;
-      --border:    #e8e2d9;
-      --text:      #1a1612;
-      --muted:     #7a7060;
-      --accent:    #c45c2a;
-      --accent2:   #3a6b9f;
-      --accent3:   #2a7a4f;
-      --warm:      #b8860b;
-      --tag-bg:    #f0ece4;
+      --bg:      #faf8f5;
+      --bg2:     #f3f0ea;
+      --surface: #ffffff;
+      --border:  #e8e2d9;
+      --text:    #1a1612;
+      --muted:   #7a7060;
+      --accent:  #c45c2a;
+      --accent2: #3a6b9f;
+      --accent3: #2a7a4f;
+      --warm:    #b8860b;
+      --tag-bg:  #f0ece4;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* ── Subtle texture dots ── */
     body::before {
       content: '';
       position: fixed;
@@ -44,7 +43,6 @@
       z-index: 0;
     }
 
-    /* ── Top colour band ── */
     .top-band {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -76,10 +74,7 @@
       margin-bottom: 20px;
     }
 
-    .name em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    .name em { font-style: italic; color: var(--accent); }
 
     .tagline {
       font-size: 16.5px;
@@ -141,10 +136,7 @@
       margin-bottom: 80px;
     }
 
-    .about-text strong {
-      color: var(--text);
-      font-weight: 500;
-    }
+    .about-text strong { color: var(--text); font-weight: 500; }
 
     /* ── Project cards ── */
     .projects-section { margin-bottom: 80px; }
@@ -159,6 +151,9 @@
       animation: fadeUp 0.6s ease both;
       position: relative;
       overflow: hidden;
+      /* KEY FIX: prevent page breaks inside cards */
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .project-card::after {
@@ -208,21 +203,24 @@
     .project-subtitle {
       font-size: 14px;
       color: var(--muted);
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       font-weight: 300;
       line-height: 1.6;
     }
 
-    .card-body {
+    /* SINGLE COLUMN layout — avoids split columns across pages */
+    .card-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-bottom: 28px;
+      gap: 28px;
+      margin-bottom: 24px;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     @media (max-width: 620px) {
-      .card-body { grid-template-columns: 1fr; }
-      .project-card { padding: 28px 24px; }
+      .card-row { grid-template-columns: 1fr; }
+      .project-card { padding: 28px 22px; }
     }
 
     .card-section-title {
@@ -244,23 +242,27 @@
       line-height: 1.78;
     }
 
-    .card-text strong {
-      color: var(--text);
-      font-weight: 500;
-    }
+    .card-text strong { color: var(--text); font-weight: 500; }
 
     .card-divider {
       height: 1px;
       background: var(--border);
-      margin: 24px 0;
+      margin: 20px 0;
+      break-inside: avoid;
     }
 
     /* ── Metrics ── */
+    .metrics-block {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      margin-bottom: 20px;
+    }
+
     .metrics-row {
       display: flex;
       gap: 14px;
-      margin: 20px 0 28px;
       flex-wrap: wrap;
+      margin-top: 12px;
     }
 
     .metric-box {
@@ -269,18 +271,16 @@
       border-radius: 12px;
       padding: 14px 20px;
       text-align: center;
-      min-width: 90px;
+      min-width: 88px;
+      flex: 1;
       transition: border-color 0.2s;
     }
 
     .metric-box:hover { border-color: var(--accent); }
-    .metric-box.b { }
-    .metric-box.b:hover { border-color: var(--accent2); }
-    .metric-box.g:hover { border-color: var(--accent3); }
 
     .metric-val {
       font-family: 'Fraunces', serif;
-      font-size: 24px;
+      font-size: 22px;
       color: var(--text);
       line-height: 1;
       margin-bottom: 5px;
@@ -294,22 +294,29 @@
       font-size: 11px;
       color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.07em;
     }
 
-    /* ── Screenshots ── */
+    /* ── Screenshots — SINGLE ROW, COMPACT ── */
+    .screenshots-block {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      margin-bottom: 20px;
+    }
+
     .screenshots {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
-      margin-bottom: 28px;
     }
 
-    .screenshots.two-col { grid-template-columns: repeat(2, 1fr); }
+    .screenshots.two-col {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
     .screenshots img {
       width: 100%;
-      height: 155px;
+      height: 140px;
       object-fit: cover;
       border-radius: 10px;
       border: 1px solid var(--border);
@@ -324,11 +331,16 @@
     }
 
     /* ── Tags ── */
+    .tags-block {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      margin-bottom: 20px;
+    }
+
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
-      margin-bottom: 26px;
     }
 
     .tag {
@@ -343,18 +355,18 @@
     }
 
     .tag:hover { background: var(--border); color: var(--text); }
-
     .tag-o { background: #fdf0ea; color: #a04820; border-color: #f0c8b0; }
     .tag-b { background: #eaf0f8; color: #2a5080; border-color: #b0cce8; }
     .tag-g { background: #eaf5ee; color: #1a6038; border-color: #a8d8b8; }
     .tag-w { background: #f8f2e0; color: #7a5a00; border-color: #e0ce90; }
 
     /* ── Links ── */
-    .card-links {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    .links-block {
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
+
+    .card-links { display: flex; gap: 10px; flex-wrap: wrap; }
 
     .card-link {
       display: inline-flex;
@@ -408,11 +420,7 @@
       transform: translateX(4px);
     }
 
-    .blog-list li a span {
-      color: var(--muted);
-      font-size: 13px;
-      flex-shrink: 0;
-    }
+    .blog-list li a span { color: var(--muted); font-size: 13px; flex-shrink: 0; }
 
     /* ── Connect ── */
     .connect-section { animation: fadeUp 0.6s ease 0.3s both; }
@@ -450,7 +458,6 @@
       text-align: center;
       color: var(--muted);
       font-size: 13px;
-      animation: fadeUp 0.6s ease 0.35s both;
     }
 
     /* ── Animations ── */
@@ -466,6 +473,19 @@
 
     .project-card:nth-child(1) { animation-delay: 0.2s; }
     .project-card:nth-child(2) { animation-delay: 0.32s; }
+
+    /* ── Print styles ── */
+    @media print {
+      body::before { display: none; }
+      .top-band { display: none; }
+      .project-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+      }
+      .screenshots img { height: 110px; }
+    }
   </style>
 </head>
 
@@ -504,7 +524,7 @@
     <section class="projects-section">
       <p class="section-label">Projects</p>
 
-      <!-- PROJECT 1: LLM eCommerce -->
+      <!-- PROJECT 1 -->
       <div class="project-card card-orange">
         <div class="card-number">01</div>
         <h2 class="project-title">LLM-based eCommerce Application</h2>
@@ -513,7 +533,7 @@
           advertisement generation, product recommendation, and customer review analysis
         </p>
 
-        <div class="card-body">
+        <div class="card-row">
           <div>
             <p class="card-section-title orange">Problem & Motivation</p>
             <p class="card-text">
@@ -527,12 +547,11 @@
           <div>
             <p class="card-section-title blue">System Design</p>
             <p class="card-text">
-              <strong>Task 1</strong> — BLIP2 scans images, generates captions,
-              and matches owner queries. Qwen2-VL writes tone-controlled slogans
-              overlaid on product images using PIL.<br><br>
-              <strong>Task 2</strong> — TableLLM-7B interprets natural language
-              queries over an enriched dataset. Qwen3-1.7B provides richer
-              recommendation explanations via a Gradio GUI.<br><br>
+              <strong>Task 1</strong> — BLIP2 scans images and generates captions.
+              Qwen2-VL writes tone-controlled slogans overlaid on product images using PIL.<br><br>
+              <strong>Task 2</strong> — TableLLM-7B interprets natural language queries
+              over an enriched dataset. Qwen3-1.7B provides richer recommendations
+              via a Gradio GUI.<br><br>
               <strong>Task 3</strong> — Qwen3-4B classifies all reviews as
               Positive / Neutral / Negative, summarises top feedback themes,
               and generates grounded product improvement suggestions.
@@ -540,29 +559,31 @@
           </div>
         </div>
 
-        <p class="card-section-title green">Task 3 — Sentiment Analysis Results</p>
-        <div class="metrics-row">
-          <div class="metric-box o">
-            <div class="metric-val">88%</div>
-            <div class="metric-label">Accuracy</div>
-          </div>
-          <div class="metric-box b">
-            <div class="metric-val">87.51%</div>
-            <div class="metric-label">F1 Score</div>
-          </div>
-          <div class="metric-box g">
-            <div class="metric-val">92.31%</div>
-            <div class="metric-label">Purchase Acc.</div>
-          </div>
-          <div class="metric-box o">
-            <div class="metric-val">100%</div>
-            <div class="metric-label">Verified Rate</div>
+        <div class="metrics-block">
+          <p class="card-section-title green">Task 3 — Sentiment Analysis Results</p>
+          <div class="metrics-row">
+            <div class="metric-box o">
+              <div class="metric-val">88%</div>
+              <div class="metric-label">Accuracy</div>
+            </div>
+            <div class="metric-box b">
+              <div class="metric-val">87.51%</div>
+              <div class="metric-label">F1 Score</div>
+            </div>
+            <div class="metric-box g">
+              <div class="metric-val">92.31%</div>
+              <div class="metric-label">Purchase Acc.</div>
+            </div>
+            <div class="metric-box o">
+              <div class="metric-val">100%</div>
+              <div class="metric-label">Verified Rate</div>
+            </div>
           </div>
         </div>
 
         <div class="card-divider"></div>
 
-        <div class="card-body">
+        <div class="card-row">
           <div>
             <p class="card-section-title warm">Key Challenges</p>
             <p class="card-text">
@@ -584,36 +605,42 @@
           </div>
         </div>
 
-        <div class="screenshots">
-          <img src="./assets/Screenshot 2026-06-06 222535.png" alt="Advertisement Agent Output">
-          <img src="./assets/Screenshot 2026-06-06 224215.png" alt="Recommendation Agent Output">
-          <img src="./assets/Screenshot 2026-06-06 225511.png" alt="Review Analysis Output">
+        <div class="screenshots-block">
+          <div class="screenshots">
+            <img src="./assets/Screenshot 2026-06-06 222535.png" alt="Advertisement Agent">
+            <img src="./assets/Screenshot 2026-06-06 224215.png" alt="Recommendation Agent">
+            <img src="./assets/Screenshot 2026-06-06 225511.png" alt="Review Analysis">
+          </div>
         </div>
 
-        <div class="tags">
-          <span class="tag tag-o">BLIP2</span>
-          <span class="tag tag-o">Qwen2-VL</span>
-          <span class="tag tag-b">TableLLM-7B</span>
-          <span class="tag tag-b">Qwen3-4B</span>
-          <span class="tag tag-g">Gradio</span>
-          <span class="tag tag-g">PyTorch</span>
-          <span class="tag tag-w">Google Colab A100</span>
-          <span class="tag tag-w">Python</span>
+        <div class="tags-block">
+          <div class="tags">
+            <span class="tag tag-o">BLIP2</span>
+            <span class="tag tag-o">Qwen2-VL</span>
+            <span class="tag tag-b">TableLLM-7B</span>
+            <span class="tag tag-b">Qwen3-4B</span>
+            <span class="tag tag-g">Gradio</span>
+            <span class="tag tag-g">PyTorch</span>
+            <span class="tag tag-w">Google Colab A100</span>
+            <span class="tag tag-w">Python</span>
+          </div>
         </div>
 
-        <div class="card-links">
-          <a class="card-link" href="https://github.com/Sanjai229" target="_blank">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            View GitHub
-          </a>
-          <a class="card-link" href="https://medium.com/@sanjaicena123/i-built-an-ai-powered-phone-store-assistant-using-5-different-llms-heres-what-i-learned-bd95c969641a" target="_blank">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-            Read Blog
-          </a>
+        <div class="links-block">
+          <div class="card-links">
+            <a class="card-link" href="https://github.com/Sanjai229" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              View GitHub
+            </a>
+            <a class="card-link" href="https://medium.com/@sanjaicena123/i-built-an-ai-powered-phone-store-assistant-using-5-different-llms-heres-what-i-learned-bd95c969641a" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+              Read Blog
+            </a>
+          </div>
         </div>
       </div>
 
-      <!-- PROJECT 2: Customer Churn -->
+      <!-- PROJECT 2 -->
       <div class="project-card card-blue">
         <div class="card-number">02</div>
         <h2 class="project-title">Customer Churn Prediction</h2>
@@ -622,7 +649,7 @@
           via a FastAPI backend and Random Forest classifier
         </p>
 
-        <div class="card-body">
+        <div class="card-row">
           <div>
             <p class="card-section-title blue">Problem & Motivation</p>
             <p class="card-text">
@@ -643,7 +670,7 @@
           </div>
         </div>
 
-        <div class="card-body">
+        <div class="card-row">
           <div>
             <p class="card-section-title warm">Key Challenges</p>
             <p class="card-text">
@@ -662,29 +689,35 @@
           </div>
         </div>
 
-        <div class="screenshots two-col">
-          <img src="./assets/churn_output_1.png" alt="Churn Prediction Output 1">
-          <img src="./assets/churn_output_2.png" alt="Churn Prediction Output 2">
+        <div class="screenshots-block">
+          <div class="screenshots two-col">
+            <img src="./assets/churn_output_1.png" alt="Churn Output 1">
+            <img src="./assets/churn_output_2.png" alt="Churn Output 2">
+          </div>
         </div>
 
-        <div class="tags">
-          <span class="tag tag-b">Python</span>
-          <span class="tag tag-b">FastAPI</span>
-          <span class="tag tag-o">Random Forest</span>
-          <span class="tag tag-o">Scikit-learn</span>
-          <span class="tag tag-g">Jinja2</span>
-          <span class="tag tag-w">Model Deployment</span>
+        <div class="tags-block">
+          <div class="tags">
+            <span class="tag tag-b">Python</span>
+            <span class="tag tag-b">FastAPI</span>
+            <span class="tag tag-o">Random Forest</span>
+            <span class="tag tag-o">Scikit-learn</span>
+            <span class="tag tag-g">Jinja2</span>
+            <span class="tag tag-w">Model Deployment</span>
+          </div>
         </div>
 
-        <div class="card-links">
-          <a class="card-link" href="https://github.com/Sanjai229/Customer-Churn-Prediction" target="_blank">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            View GitHub
-          </a>
-          <a class="card-link" href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f" target="_blank">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-            Read Blog
-          </a>
+        <div class="links-block">
+          <div class="card-links">
+            <a class="card-link" href="https://github.com/Sanjai229/Customer-Churn-Prediction" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              View GitHub
+            </a>
+            <a class="card-link" href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+              Read Blog
+            </a>
+          </div>
         </div>
       </div>
 
@@ -741,3 +774,5 @@
   </div>
 </body>
 </html>
+HTMLEOF
+echo "Done! File size: $(wc -c < /mnt/user-data/outputs/index.html) bytes"

@@ -151,7 +151,6 @@
       animation: fadeUp 0.6s ease both;
       position: relative;
       overflow: hidden;
-      /* KEY FIX: prevent page breaks inside cards */
       break-inside: avoid;
       page-break-inside: avoid;
     }
@@ -208,7 +207,6 @@
       line-height: 1.6;
     }
 
-    /* SINGLE COLUMN layout — avoids split columns across pages */
     .card-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -297,7 +295,7 @@
       letter-spacing: 0.07em;
     }
 
-    /* ── Screenshots — SINGLE ROW, COMPACT ── */
+    /* ── Screenshots ── */
     .screenshots-block {
       break-inside: avoid;
       page-break-inside: avoid;
@@ -478,13 +476,66 @@
     @media print {
       body::before { display: none; }
       .top-band { display: none; }
+
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .wrapper { padding: 24px 20px; max-width: 100%; }
+
+      .project-card { padding: 26px 30px; }
+      .project-title { font-size: 22px; margin-bottom: 4px; }
+      .project-subtitle { margin-bottom: 18px; font-size: 13px; }
+      .card-row { gap: 22px; margin-bottom: 16px; }
+      .card-text { font-size: 12.5px; line-height: 1.6; }
+      .card-section-title { font-size: 10px; margin-bottom: 6px; }
+      .metrics-block { margin-bottom: 14px; }
+      .metrics-row { gap: 10px; margin-top: 8px; }
+      .metric-box { padding: 8px 12px; }
+      .metric-val { font-size: 17px; margin-bottom: 2px; }
+      .metric-label { font-size: 9px; }
+      .card-divider { margin: 14px 0; }
+      .screenshots-block { margin-bottom: 14px; }
+      .screenshots img { height: 75px; }
+      .tags-block { margin-bottom: 14px; }
+      .tag { padding: 3px 10px; font-size: 10.5px; }
+      .card-link { padding: 6px 14px; font-size: 12px; }
+      .card-number { margin-bottom: 8px; font-size: 11px; }
+
+      /* Force each project card onto its own fresh page */
       .project-card {
-        break-inside: avoid;
-        page-break-inside: avoid;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        break-before: page;
+        page-break-before: always;
         box-shadow: none !important;
         border: 1px solid #ddd !important;
+        transform: none !important;
       }
-      .screenshots img { height: 110px; }
+
+      .project-card:first-of-type {
+        break-before: auto;
+        page-break-before: auto;
+      }
+
+      .card-row,
+      .metrics-block,
+      .screenshots-block,
+      .tags-block,
+      .links-block,
+      .card-divider {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      header, .about-text, .section-label {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .blog-section { break-before: page; page-break-before: always; }
+      .connect-section { break-inside: avoid; page-break-inside: avoid; }
     }
   </style>
 </head>

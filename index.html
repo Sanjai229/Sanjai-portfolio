@@ -85,6 +85,14 @@
       margin-bottom: 28px;
     }
 
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
     .status-pill {
       display: inline-flex;
       align-items: center;
@@ -104,6 +112,39 @@
       background: var(--accent3);
       animation: pulse 2s infinite;
     }
+
+    .resume-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--text);
+      color: var(--bg);
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .resume-btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(196,92,42,0.3);
+    }
+
+    .header-contact {
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    .header-contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .header-contact a:hover { text-decoration: underline; }
 
     /* ── Section label ── */
     .section-label {
@@ -166,6 +207,8 @@
 
     .project-card.card-orange::after { background: var(--accent); }
     .project-card.card-blue::after   { background: var(--accent2); }
+    .project-card.card-green::after  { background: var(--accent3); }
+    .project-card.card-warm::after   { background: var(--warm); }
 
     .project-card:hover {
       transform: translateY(-4px);
@@ -293,6 +336,13 @@
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.07em;
+    }
+
+    .metric-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+      font-style: italic;
     }
 
     /* ── Screenshots ── */
@@ -471,6 +521,8 @@
 
     .project-card:nth-child(1) { animation-delay: 0.2s; }
     .project-card:nth-child(2) { animation-delay: 0.32s; }
+    .project-card:nth-child(3) { animation-delay: 0.44s; }
+    .project-card:nth-child(4) { animation-delay: 0.56s; }
 
     /* ── Print styles ── */
     @media print {
@@ -502,6 +554,7 @@
       .tag { padding: 3px 10px; font-size: 10.5px; }
       .card-link { padding: 6px 14px; font-size: 12px; }
       .card-number { margin-bottom: 8px; font-size: 11px; }
+      .resume-btn { display: none; }
 
       /* Force each project card onto its own fresh page */
       .project-card {
@@ -552,10 +605,18 @@
         Master's student in Data Science at Adelaide University —
         building end-to-end ML systems and deploying LLMs in real-world applications.
       </p>
-      <div class="status-pill">
-        <span class="status-dot"></span>
-        Open to opportunities · Adelaide, Australia
+      <div class="header-actions">
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          Graduating Dec 2026 · Available full-time from Feb 2027
+        </div>
+        <a class="resume-btn" href="./assets/Sanjai_Arul_Resume.pdf" download>
+          ↓ Download Resume
+        </a>
       </div>
+      <p class="header-contact">
+        Adelaide, Australia · <a href="mailto:sanjaicena123@gmail.com">sanjaicena123@gmail.com</a>
+      </p>
     </header>
 
     <!-- About -->
@@ -630,6 +691,10 @@
               <div class="metric-label">Verified Rate</div>
             </div>
           </div>
+          <p class="metric-note">
+            Sentiment classified on 67,986 reviews; purchase accuracy measures correct
+            identification of verified-purchase reviews.
+          </p>
         </div>
 
         <div class="card-divider"></div>
@@ -772,6 +837,112 @@
         </div>
       </div>
 
+      <!-- PROJECT 3 -->
+      <div class="project-card card-green">
+        <div class="card-number">03</div>
+        <h2 class="project-title">Real-time Speech Transcription &amp; Gender Detection</h2>
+        <p class="project-subtitle">
+          Web application that transcribes speech in real time and predicts
+          speaker gender from voice characteristics
+        </p>
+
+        <div class="card-row">
+          <div>
+            <p class="card-section-title green">Problem & Motivation</p>
+            <p class="card-text">
+              Speech is the most natural interface, but most student projects stop
+              at offline transcription. I wanted a system that handles
+              <strong>live audio</strong> end to end — capturing speech in the browser,
+              transcribing it as it's spoken, and enriching it with speaker
+              attributes in the same pipeline.
+            </p>
+          </div>
+          <div>
+            <p class="card-section-title blue">System Design</p>
+            <p class="card-text">
+              A web front end captures microphone audio and streams it to a
+              Python backend, where a speech-recognition model produces live
+              transcription while acoustic features drive a gender classification
+              model. Results render back to the browser in real time.
+            </p>
+          </div>
+        </div>
+
+        <div class="tags-block">
+          <div class="tags">
+            <span class="tag tag-g">Python</span>
+            <span class="tag tag-g">Speech Recognition</span>
+            <span class="tag tag-b">Audio Processing</span>
+            <span class="tag tag-o">Real-time Inference</span>
+            <span class="tag tag-w">Web App</span>
+          </div>
+        </div>
+
+        <div class="links-block">
+          <div class="card-links">
+            <a class="card-link" href="https://github.com/Sanjai229" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              View GitHub
+            </a>
+            <a class="card-link" href="https://medium.com/@sanjaicena123/real-time-speech-transcription-and-gender-detection-web-application-c04429134c37" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+              Read Blog
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 4 -->
+      <div class="project-card card-warm">
+        <div class="card-number">04</div>
+        <h2 class="project-title">Customer Segmentation with K-Means</h2>
+        <p class="project-subtitle">
+          RFM analysis and clustering on transactional data to identify
+          high-value, loyal and at-risk customer segments
+        </p>
+
+        <div class="card-row">
+          <div>
+            <p class="card-section-title warm">Problem & Motivation</p>
+            <p class="card-text">
+              Treating every customer the same wastes marketing spend.
+              Using transactional data, I applied <strong>RFM analysis</strong>
+              (Recency, Frequency, Monetary) to describe customer behaviour,
+              then clustered customers into actionable segments.
+            </p>
+          </div>
+          <div>
+            <p class="card-section-title green">Approach & Outcome</p>
+            <p class="card-text">
+              Aggregated transactions to customer level, scaled features, and ran
+              <strong>K-Means clustering</strong> with optimal cluster selection.
+              The resulting segments — high-value, loyal, at-risk — support
+              targeted marketing, churn reduction, and customer lifetime value
+              (CLV) evaluation.
+            </p>
+          </div>
+        </div>
+
+        <div class="tags-block">
+          <div class="tags">
+            <span class="tag tag-w">Python</span>
+            <span class="tag tag-o">K-Means</span>
+            <span class="tag tag-b">RFM Analysis</span>
+            <span class="tag tag-g">Scikit-learn</span>
+            <span class="tag tag-g">Clustering</span>
+          </div>
+        </div>
+
+        <div class="links-block">
+          <div class="card-links">
+            <a class="card-link" href="https://github.com/Sanjai229" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              View GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <!-- Writing -->
@@ -803,6 +974,10 @@
     <section class="connect-section">
       <p class="section-label">Connect</p>
       <div class="connect-links">
+        <a class="connect-link" href="mailto:sanjaicena123@gmail.com">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+          Email
+        </a>
         <a class="connect-link" href="https://github.com/Sanjai229" target="_blank">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           GitHub

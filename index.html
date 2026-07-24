@@ -522,7 +522,6 @@
     .project-card:nth-child(1) { animation-delay: 0.2s; }
     .project-card:nth-child(2) { animation-delay: 0.32s; }
     .project-card:nth-child(3) { animation-delay: 0.44s; }
-    .project-card:nth-child(4) { animation-delay: 0.56s; }
 
     /* ── Print styles ── */
     @media print {
@@ -603,7 +602,7 @@
       <h1 class="name">Sanjai <em>Arul</em></h1>
       <p class="tagline">
         Master's student in Data Science at Adelaide University —
-        building end-to-end ML systems and deploying LLMs in real-world applications.
+        turning data into decisions with SQL, statistics and machine learning.
       </p>
       <div class="header-actions">
         <div class="status-pill">
@@ -615,7 +614,7 @@
         </a>
       </div>
       <p class="header-contact">
-        Adelaide, Australia · <a href="mailto:sanjaicena123@gmail.com">sanjaicena123@gmail.com</a>
+        Adelaide, Australia · <a href="mailto:a1954418@adelaide.edu.au">a1954418@adelaide.edu.au</a>
       </p>
     </header>
 
@@ -623,12 +622,12 @@
     <section>
       <p class="section-label">About</p>
       <p class="about-text">
-        I build <strong>end-to-end machine learning systems</strong> with a focus on
-        large language models, speech processing, and real-world deployment constraints.
-        My work sits at the intersection of research and engineering —
-        I care as much about <strong>how a system fails</strong> as how it succeeds.
-        Currently exploring multimodal AI and LLM-based applications
-        across eCommerce, audio, and predictive analytics.
+        I work across the full analytics stack — <strong>SQL and statistical analysis</strong>
+        for finding what the data actually says, and <strong>machine learning</strong>
+        for acting on it. My background in electronics engineering shapes how I approach
+        systems: I care as much about <strong>how something fails</strong> as how it succeeds.
+        That shows up as a habit of checking my own output — the invisible characters,
+        the boundary artifacts, the hypothesis that doesn't survive testing.
       </p>
     </section>
 
@@ -639,6 +638,123 @@
       <!-- PROJECT 1 -->
       <div class="project-card card-orange">
         <div class="card-number">01</div>
+        <h2 class="project-title">E-Commerce Sales &amp; Delivery Analysis in SQL</h2>
+        <p class="project-subtitle">
+          100,000 real marketplace orders analysed in MySQL — uncovering why a
+          fast-growing business quietly stopped growing
+        </p>
+
+        <div class="card-row">
+          <div>
+            <p class="card-section-title orange">Problem &amp; Motivation</p>
+            <p class="card-text">
+              The Olist dataset covers ~100,000 Brazilian e-commerce orders across
+              nine tables and two years. Rather than practising syntax, I set out to
+              answer the questions a business analyst is actually asked: where does
+              revenue come from, do deliveries meet their promises, what drives bad
+              reviews, and do customers ever come back?
+            </p>
+          </div>
+          <div>
+            <p class="card-section-title blue">Approach</p>
+            <p class="card-text">
+              Built the schema by hand in <strong>MySQL 8</strong> — typed columns,
+              indexed join keys — and loaded 500k+ rows via
+              <strong>LOAD DATA INFILE</strong>, converting blank timestamps to NULL
+              at load time so date arithmetic stayed correct.<br><br>
+              16 analytical queries spanning multi-table joins, CTEs,
+              <strong>CASE WHEN</strong>, <strong>HAVING</strong>, and window
+              functions — <strong>LAG</strong>, <strong>LEAD</strong>,
+              <strong>ROW_NUMBER</strong>, <strong>RANK</strong>,
+              <strong>NTILE</strong>, running totals and moving averages.
+            </p>
+          </div>
+        </div>
+
+        <div class="metrics-block">
+          <p class="card-section-title green">Headline Findings</p>
+          <div class="metrics-row">
+            <div class="metric-box o">
+              <div class="metric-val">6×</div>
+              <div class="metric-label">Bad reviews if late</div>
+            </div>
+            <div class="metric-box b">
+              <div class="metric-val">3.1%</div>
+              <div class="metric-label">Repeat customers</div>
+            </div>
+            <div class="metric-box g">
+              <div class="metric-val">74%</div>
+              <div class="metric-label">Delay is carrier-side</div>
+            </div>
+            <div class="metric-box o">
+              <div class="metric-val">$15.7M</div>
+              <div class="metric-label">Revenue analysed</div>
+            </div>
+          </div>
+          <p class="metric-note">
+            Late orders average 2.57 stars vs 4.29 on-time, with 54% receiving 1–2 stars.
+            Only 2,997 of ~96,000 customers ever ordered twice.
+          </p>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <div class="card-row">
+          <div>
+            <p class="card-section-title warm">Key Challenges</p>
+            <p class="card-text">
+              — Invisible carriage returns from Windows CSVs silently attached to
+              every category name, which would have broken later filters<br>
+              — Partial months at the dataset boundaries producing absurd growth
+              figures (+697,878%)<br>
+              — <code>customer_id</code> being unique per order, not per person —
+              using it would have inflated the retention rate<br>
+              — A weight-vs-satisfaction hypothesis that held only at the extremes
+            </p>
+          </div>
+          <div>
+            <p class="card-section-title orange">Trade-offs &amp; Learnings</p>
+            <p class="card-text">
+              Revenue in 2018 sat at a reassuring $1M/month — but month-over-month
+              growth had flatlined near zero. The problem was invisible in the raw
+              numbers and only emerged from a derived metric.<br><br>
+              The findings connect: growth stalled <em>because</em> retention was
+              3%, while late deliveries actively pushed customers away. The analysis
+              is observational, so causation isn't proven — the write-up sets out how
+              I'd verify it.
+            </p>
+          </div>
+        </div>
+
+        <div class="tags-block">
+          <div class="tags">
+            <span class="tag tag-o">SQL</span>
+            <span class="tag tag-o">MySQL 8</span>
+            <span class="tag tag-b">Window Functions</span>
+            <span class="tag tag-b">CTEs</span>
+            <span class="tag tag-g">Data Cleaning</span>
+            <span class="tag tag-g">Schema Design</span>
+            <span class="tag tag-w">Business Analysis</span>
+          </div>
+        </div>
+
+        <div class="links-block">
+          <div class="card-links">
+            <a class="card-link" href="https://github.com/Sanjai229/olist-sql-analysis" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              View GitHub
+            </a>
+            <a class="card-link" href="https://medium.com/@sanjaicena123/what-100-000-e-commerce-orders-taught-me-about-reading-data-properly-ba431bd5ca09" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+              Read Blog
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card card-blue">
+        <div class="card-number">02</div>
         <h2 class="project-title">LLM-based eCommerce Application</h2>
         <p class="project-subtitle">
           Three intelligent agents for an online cell phone store —
@@ -756,9 +872,9 @@
         </div>
       </div>
 
-      <!-- PROJECT 2 -->
-      <div class="project-card card-blue">
-        <div class="card-number">02</div>
+      <!-- PROJECT 3 -->
+      <div class="project-card card-green">
+        <div class="card-number">03</div>
         <h2 class="project-title">Customer Churn Prediction</h2>
         <p class="project-subtitle">
           Web application giving non-technical users real-time churn predictions
@@ -837,112 +953,6 @@
         </div>
       </div>
 
-      <!-- PROJECT 3 -->
-      <div class="project-card card-green">
-        <div class="card-number">03</div>
-        <h2 class="project-title">Real-time Speech Transcription &amp; Gender Detection</h2>
-        <p class="project-subtitle">
-          Web application that transcribes speech in real time and predicts
-          speaker gender from voice characteristics
-        </p>
-
-        <div class="card-row">
-          <div>
-            <p class="card-section-title green">Problem & Motivation</p>
-            <p class="card-text">
-              Speech is the most natural interface, but most student projects stop
-              at offline transcription. I wanted a system that handles
-              <strong>live audio</strong> end to end — capturing speech in the browser,
-              transcribing it as it's spoken, and enriching it with speaker
-              attributes in the same pipeline.
-            </p>
-          </div>
-          <div>
-            <p class="card-section-title blue">System Design</p>
-            <p class="card-text">
-              A web front end captures microphone audio and streams it to a
-              Python backend, where a speech-recognition model produces live
-              transcription while acoustic features drive a gender classification
-              model. Results render back to the browser in real time.
-            </p>
-          </div>
-        </div>
-
-        <div class="tags-block">
-          <div class="tags">
-            <span class="tag tag-g">Python</span>
-            <span class="tag tag-g">Speech Recognition</span>
-            <span class="tag tag-b">Audio Processing</span>
-            <span class="tag tag-o">Real-time Inference</span>
-            <span class="tag tag-w">Web App</span>
-          </div>
-        </div>
-
-        <div class="links-block">
-          <div class="card-links">
-            <a class="card-link" href="https://github.com/Sanjai229" target="_blank">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              View GitHub
-            </a>
-            <a class="card-link" href="https://medium.com/@sanjaicena123/real-time-speech-transcription-and-gender-detection-web-application-c04429134c37" target="_blank">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-              Read Blog
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 4 -->
-      <div class="project-card card-warm">
-        <div class="card-number">04</div>
-        <h2 class="project-title">Customer Segmentation with K-Means</h2>
-        <p class="project-subtitle">
-          RFM analysis and clustering on transactional data to identify
-          high-value, loyal and at-risk customer segments
-        </p>
-
-        <div class="card-row">
-          <div>
-            <p class="card-section-title warm">Problem & Motivation</p>
-            <p class="card-text">
-              Treating every customer the same wastes marketing spend.
-              Using transactional data, I applied <strong>RFM analysis</strong>
-              (Recency, Frequency, Monetary) to describe customer behaviour,
-              then clustered customers into actionable segments.
-            </p>
-          </div>
-          <div>
-            <p class="card-section-title green">Approach & Outcome</p>
-            <p class="card-text">
-              Aggregated transactions to customer level, scaled features, and ran
-              <strong>K-Means clustering</strong> with optimal cluster selection.
-              The resulting segments — high-value, loyal, at-risk — support
-              targeted marketing, churn reduction, and customer lifetime value
-              (CLV) evaluation.
-            </p>
-          </div>
-        </div>
-
-        <div class="tags-block">
-          <div class="tags">
-            <span class="tag tag-w">Python</span>
-            <span class="tag tag-o">K-Means</span>
-            <span class="tag tag-b">RFM Analysis</span>
-            <span class="tag tag-g">Scikit-learn</span>
-            <span class="tag tag-g">Clustering</span>
-          </div>
-        </div>
-
-        <div class="links-block">
-          <div class="card-links">
-            <a class="card-link" href="https://github.com/Sanjai229" target="_blank">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              View GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-
     </section>
 
     <!-- Writing -->
@@ -950,14 +960,14 @@
       <p class="section-label">Writing</p>
       <ul class="blog-list">
         <li>
-          <a href="https://medium.com/@sanjaicena123/i-built-an-ai-powered-phone-store-assistant-using-5-different-llms-heres-what-i-learned-bd95c969641a" target="_blank">
-            I Built an AI-Powered Phone Store Assistant Using 5 Different LLMs
+          <a href="https://medium.com/@sanjaicena123/what-100-000-e-commerce-orders-taught-me-about-reading-data-properly-ba431bd5ca09" target="_blank">
+            What 100,000 E-Commerce Orders Taught Me About Reading Data Properly
             <span>Medium →</span>
           </a>
         </li>
         <li>
-          <a href="https://medium.com/@sanjaicena123/real-time-speech-transcription-and-gender-detection-web-application-c04429134c37" target="_blank">
-            Real-time Speech Transcription and Gender Detection Web Application
+          <a href="https://medium.com/@sanjaicena123/i-built-an-ai-powered-phone-store-assistant-using-5-different-llms-heres-what-i-learned-bd95c969641a" target="_blank">
+            I Built an AI-Powered Phone Store Assistant Using 5 Different LLMs
             <span>Medium →</span>
           </a>
         </li>
@@ -974,7 +984,7 @@
     <section class="connect-section">
       <p class="section-label">Connect</p>
       <div class="connect-links">
-        <a class="connect-link" href="mailto:sanjaicena123@gmail.com">
+        <a class="connect-link" href="mailto:a1954418@adelaide.edu.au">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
           Email
         </a>

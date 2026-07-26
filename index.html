@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sanjai Arul — Data Science Portfolio</title>
+  <title>Sanjai Arul - Data Science Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 
@@ -601,7 +601,7 @@
     <header>
       <h1 class="name">Sanjai <em>Arul</em></h1>
       <p class="tagline">
-        Master's student in Data Science at Adelaide University —
+        Master's student in Data Science at Adelaide University -
         turning data into decisions with SQL, statistics and machine learning.
       </p>
       <div class="header-actions">
@@ -622,11 +622,11 @@
     <section>
       <p class="section-label">About</p>
       <p class="about-text">
-        I work across the full analytics stack — <strong>SQL and statistical analysis</strong>
+        I work across the full analytics stack - <strong>SQL and statistical analysis</strong>
         for finding what the data actually says, and <strong>machine learning</strong>
         for acting on it. My background in electronics engineering shapes how I approach
         systems: I care as much about <strong>how something fails</strong> as how it succeeds.
-        That shows up as a habit of checking my own output — the invisible characters,
+        That shows up as a habit of checking my own output - the invisible characters,
         the boundary artifacts, the hypothesis that doesn't survive testing.
       </p>
     </section>
@@ -640,7 +640,7 @@
         <div class="card-number">01</div>
         <h2 class="project-title">E-Commerce Sales &amp; Delivery Analysis in SQL</h2>
         <p class="project-subtitle">
-          100,000 real marketplace orders analysed in MySQL — uncovering why a
+          100,000 real marketplace orders analysed in MySQL - uncovering why a
           fast-growing business quietly stopped growing
         </p>
 
@@ -658,13 +658,13 @@
           <div>
             <p class="card-section-title blue">Approach</p>
             <p class="card-text">
-              Built the schema by hand in <strong>MySQL 8</strong> — typed columns,
-              indexed join keys — and loaded 500k+ rows via
+              Built the schema by hand in <strong>MySQL 8</strong> - typed columns,
+              indexed join keys - and loaded 500k+ rows via
               <strong>LOAD DATA INFILE</strong>, converting blank timestamps to NULL
               at load time so date arithmetic stayed correct.<br><br>
               16 analytical queries spanning multi-table joins, CTEs,
               <strong>CASE WHEN</strong>, <strong>HAVING</strong>, and window
-              functions — <strong>LAG</strong>, <strong>LEAD</strong>,
+              functions - <strong>LAG</strong>, <strong>LEAD</strong>,
               <strong>ROW_NUMBER</strong>, <strong>RANK</strong>,
               <strong>NTILE</strong>, running totals and moving averages.
             </p>
@@ -703,24 +703,24 @@
           <div>
             <p class="card-section-title warm">Key Challenges</p>
             <p class="card-text">
-              — Invisible carriage returns from Windows CSVs silently attached to
+              - Invisible carriage returns from Windows CSVs silently attached to
               every category name, which would have broken later filters<br>
-              — Partial months at the dataset boundaries producing absurd growth
+              - Partial months at the dataset boundaries producing absurd growth
               figures (+697,878%)<br>
-              — <code>customer_id</code> being unique per order, not per person —
+              - <code>customer_id</code> being unique per order, not per person -
               using it would have inflated the retention rate<br>
-              — A weight-vs-satisfaction hypothesis that held only at the extremes
+              - A weight-vs-satisfaction hypothesis that held only at the extremes
             </p>
           </div>
           <div>
             <p class="card-section-title orange">Trade-offs &amp; Learnings</p>
             <p class="card-text">
-              Revenue in 2018 sat at a reassuring $1M/month — but month-over-month
+              Revenue in 2018 sat at a reassuring $1M/month - but month-over-month
               growth had flatlined near zero. The problem was invisible in the raw
               numbers and only emerged from a derived metric.<br><br>
               The findings connect: growth stalled <em>because</em> retention was
               3%, while late deliveries actively pushed customers away. The analysis
-              is observational, so causation isn't proven — the write-up sets out how
+              is observational, so causation isn't proven - the write-up sets out how
               I'd verify it.
             </p>
           </div>
@@ -757,7 +757,7 @@
         <div class="card-number">02</div>
         <h2 class="project-title">LLM-based eCommerce Application</h2>
         <p class="project-subtitle">
-          Three intelligent agents for an online cell phone store —
+          Three intelligent agents for an online cell phone store -
           advertisement generation, product recommendation, and customer review analysis
         </p>
 
@@ -767,7 +767,7 @@
             <p class="card-text">
               Running a phone store means managing hundreds of product images,
               720 product records, and nearly 68,000 customer reviews.
-              Traditional tools — SQL, manual tagging, spreadsheets — don't scale
+              Traditional tools - SQL, manual tagging, spreadsheets - don't scale
               and can't understand natural language. I built three LLM agents to
               automate the full pipeline from ad creation to business intelligence.
             </p>
@@ -775,12 +775,12 @@
           <div>
             <p class="card-section-title blue">System Design</p>
             <p class="card-text">
-              <strong>Task 1</strong> — BLIP2 scans images and generates captions.
+              <strong>Task 1</strong> - BLIP2 scans images and generates captions.
               Qwen2-VL writes tone-controlled slogans overlaid on product images using PIL.<br><br>
-              <strong>Task 2</strong> — TableLLM-7B interprets natural language queries
+              <strong>Task 2</strong> - TableLLM-7B interprets natural language queries
               over an enriched dataset. Qwen3-1.7B provides richer recommendations
               via a Gradio GUI.<br><br>
-              <strong>Task 3</strong> — Qwen3-4B classifies all reviews as
+              <strong>Task 3</strong> - Qwen3-4B classifies all reviews as
               Positive / Neutral / Negative, summarises top feedback themes,
               and generates grounded product improvement suggestions.
             </p>
@@ -788,7 +788,7 @@
         </div>
 
         <div class="metrics-block">
-          <p class="card-section-title green">Task 3 — Sentiment Analysis Results</p>
+          <p class="card-section-title green">Task 3 - Sentiment Analysis Results</p>
           <div class="metrics-row">
             <div class="metric-box o">
               <div class="metric-val">88%</div>
@@ -819,16 +819,16 @@
           <div>
             <p class="card-section-title warm">Key Challenges</p>
             <p class="card-text">
-              — BLIP2 tokenizer incompatibility with Python 3.12<br>
-              — Regex capturing trailing punctuation in numeric filters<br>
-              — Balancing TableLLM precision vs Qwen3 language quality<br>
-              — Processing 67,986 reviews within GPU memory constraints
+              - BLIP2 tokenizer incompatibility with Python 3.12<br>
+              - Regex capturing trailing punctuation in numeric filters<br>
+              - Balancing TableLLM precision vs Qwen3 language quality<br>
+              - Processing 67,986 reviews within GPU memory constraints
             </p>
           </div>
           <div>
             <p class="card-section-title orange">Trade-offs & Learnings</p>
             <p class="card-text">
-              Model selection must match task type — BLIP2 excels at captioning
+              Model selection must match task type - BLIP2 excels at captioning
               but struggles with creative generation. The key insight: LLMs
               interpret ambiguous natural language that SQL simply cannot handle.
               A single Qwen3-4B model simultaneously classified, summarised,
@@ -888,7 +888,7 @@
               Customer churn predictions rarely make it into real systems.
               I built a web app where non-technical business users input
               customer details through a form and receive real-time churn
-              probability — bridging the gap between ML model and business decision.
+              probability - bridging the gap between ML model and business decision.
             </p>
           </div>
           <div>
@@ -906,9 +906,9 @@
           <div>
             <p class="card-section-title warm">Key Challenges</p>
             <p class="card-text">
-              — Feature name consistency between training and serving<br>
-              — Manual preprocessing pipeline reliability<br>
-              — Deployment-time parsing and dependency issues
+              - Feature name consistency between training and serving<br>
+              - Manual preprocessing pipeline reliability<br>
+              - Deployment-time parsing and dependency issues
             </p>
           </div>
           <div>

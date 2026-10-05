@@ -5,7 +5,7 @@
   <title>Sanjai Arul - Data Science Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-
+ 
   <style>
     :root {
       --bg:      #faf8f5;
@@ -20,10 +20,10 @@
       --warm:    #b8860b;
       --tag-bg:  #f0ece4;
     }
-
+ 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
+ 
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--bg);
@@ -31,7 +31,7 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
+ 
     body::before {
       content: '';
       position: fixed;
@@ -42,7 +42,7 @@
       pointer-events: none;
       z-index: 0;
     }
-
+ 
     .top-band {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -50,7 +50,7 @@
       background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
       z-index: 100;
     }
-
+ 
     .wrapper {
       position: relative;
       z-index: 1;
@@ -58,13 +58,13 @@
       margin: 0 auto;
       padding: 80px 28px 120px;
     }
-
+ 
     /* ── Header ── */
     header {
       margin-bottom: 72px;
       animation: fadeUp 0.6s ease both;
     }
-
+ 
     .name {
       font-family: 'Fraunces', serif;
       font-size: clamp(48px, 8vw, 76px);
@@ -73,9 +73,9 @@
       color: var(--text);
       margin-bottom: 20px;
     }
-
+ 
     .name em { font-style: italic; color: var(--accent); }
-
+ 
     .tagline {
       font-size: 16.5px;
       color: var(--muted);
@@ -84,7 +84,7 @@
       line-height: 1.75;
       margin-bottom: 28px;
     }
-
+ 
     .header-actions {
       display: flex;
       align-items: center;
@@ -92,7 +92,7 @@
       flex-wrap: wrap;
       margin-bottom: 14px;
     }
-
+ 
     .status-pill {
       display: inline-flex;
       align-items: center;
@@ -105,14 +105,14 @@
       font-size: 13px;
       font-weight: 500;
     }
-
+ 
     .status-dot {
       width: 7px; height: 7px;
       border-radius: 50%;
       background: var(--accent3);
       animation: pulse 2s infinite;
     }
-
+ 
     .resume-btn {
       display: inline-flex;
       align-items: center;
@@ -126,26 +126,26 @@
       text-decoration: none;
       transition: all 0.2s;
     }
-
+ 
     .resume-btn:hover {
       background: var(--accent);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(196,92,42,0.3);
     }
-
+ 
     .header-contact {
       font-size: 13.5px;
       color: var(--muted);
     }
-
+ 
     .header-contact a {
       color: var(--accent);
       text-decoration: none;
       font-weight: 500;
     }
-
+ 
     .header-contact a:hover { text-decoration: underline; }
-
+ 
     /* ── Section label ── */
     .section-label {
       font-size: 11px;
@@ -159,14 +159,14 @@
       gap: 14px;
       animation: fadeUp 0.6s ease 0.1s both;
     }
-
+ 
     .section-label::after {
       content: '';
       flex: 1;
       height: 1px;
       background: var(--border);
     }
-
+ 
     /* ── About ── */
     .about-text {
       font-size: 16px;
@@ -176,12 +176,12 @@
       animation: fadeUp 0.6s ease 0.15s both;
       margin-bottom: 80px;
     }
-
+ 
     .about-text strong { color: var(--text); font-weight: 500; }
-
+ 
     /* ── Project cards ── */
     .projects-section { margin-bottom: 80px; }
-
+ 
     .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -195,7 +195,7 @@
       break-inside: avoid;
       page-break-inside: avoid;
     }
-
+ 
     .project-card::after {
       content: '';
       position: absolute;
@@ -204,18 +204,18 @@
       height: 100%;
       border-radius: 20px 0 0 20px;
     }
-
+ 
     .project-card.card-orange::after { background: var(--accent); }
     .project-card.card-blue::after   { background: var(--accent2); }
     .project-card.card-green::after  { background: var(--accent3); }
     .project-card.card-warm::after   { background: var(--warm); }
-
+ 
     .project-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 48px rgba(0,0,0,0.09);
       border-color: #d4cfc6;
     }
-
+ 
     .card-number {
       font-family: 'Fraunces', serif;
       font-size: 13px;
@@ -226,13 +226,27 @@
       align-items: center;
       gap: 10px;
     }
-
+ 
     .card-number::after {
       content: '';
       width: 28px; height: 1px;
       background: var(--border);
     }
-
+ 
+    .status-tag {
+      display: inline-block;
+      background: #f8f2e0;
+      color: #7a5a00;
+      border: 1px solid #e0ce90;
+      border-radius: 999px;
+      padding: 3px 11px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      margin-left: 2px;
+    }
+ 
     .project-title {
       font-family: 'Fraunces', serif;
       font-size: 27px;
@@ -241,7 +255,7 @@
       line-height: 1.2;
       font-weight: 500;
     }
-
+ 
     .project-subtitle {
       font-size: 14px;
       color: var(--muted);
@@ -249,7 +263,7 @@
       font-weight: 300;
       line-height: 1.6;
     }
-
+ 
     .card-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -258,12 +272,12 @@
       break-inside: avoid;
       page-break-inside: avoid;
     }
-
+ 
     @media (max-width: 620px) {
       .card-row { grid-template-columns: 1fr; }
       .project-card { padding: 28px 22px; }
     }
-
+ 
     .card-section-title {
       font-size: 11px;
       font-weight: 600;
@@ -271,41 +285,41 @@
       text-transform: uppercase;
       margin-bottom: 10px;
     }
-
+ 
     .orange { color: var(--accent);  }
     .blue   { color: var(--accent2); }
     .green  { color: var(--accent3); }
     .warm   { color: var(--warm);    }
-
+ 
     .card-text {
       font-size: 14.5px;
       color: var(--muted);
       line-height: 1.78;
     }
-
+ 
     .card-text strong { color: var(--text); font-weight: 500; }
-
+ 
     .card-divider {
       height: 1px;
       background: var(--border);
       margin: 20px 0;
       break-inside: avoid;
     }
-
+ 
     /* ── Metrics ── */
     .metrics-block {
       break-inside: avoid;
       page-break-inside: avoid;
       margin-bottom: 20px;
     }
-
+ 
     .metrics-row {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
       margin-top: 12px;
     }
-
+ 
     .metric-box {
       background: var(--bg2);
       border: 1px solid var(--border);
@@ -316,9 +330,9 @@
       flex: 1;
       transition: border-color 0.2s;
     }
-
+ 
     .metric-box:hover { border-color: var(--accent); }
-
+ 
     .metric-val {
       font-family: 'Fraunces', serif;
       font-size: 22px;
@@ -326,42 +340,54 @@
       line-height: 1;
       margin-bottom: 5px;
     }
-
+ 
     .metric-box.o .metric-val { color: var(--accent);  }
     .metric-box.b .metric-val { color: var(--accent2); }
     .metric-box.g .metric-val { color: var(--accent3); }
-
+ 
     .metric-label {
       font-size: 11px;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.07em;
     }
-
+ 
     .metric-note {
       font-size: 12px;
       color: var(--muted);
       margin-top: 10px;
       font-style: italic;
     }
-
+ 
     /* ── Screenshots ── */
     .screenshots-block {
       break-inside: avoid;
       page-break-inside: avoid;
       margin-bottom: 20px;
     }
-
+ 
     .screenshots {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
     }
-
+ 
     .screenshots.two-col {
       grid-template-columns: repeat(2, 1fr);
     }
-
+ 
+    .screenshots.one-col {
+      grid-template-columns: 1fr;
+    }
+ 
+    .screenshots.one-col img {
+      height: auto;
+      max-height: 460px;
+      object-fit: contain;
+      background: #0e2233;
+      padding: 6px;
+    }
+ 
     .screenshots img {
       width: 100%;
       height: 140px;
@@ -372,25 +398,25 @@
       display: block;
       background: var(--bg2);
     }
-
+ 
     .screenshots img:hover {
       transform: scale(1.03);
       box-shadow: 0 8px 24px rgba(0,0,0,0.1);
     }
-
+ 
     /* ── Tags ── */
     .tags-block {
       break-inside: avoid;
       page-break-inside: avoid;
       margin-bottom: 20px;
     }
-
+ 
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
     }
-
+ 
     .tag {
       padding: 5px 13px;
       border-radius: 999px;
@@ -401,21 +427,21 @@
       border: 1px solid var(--border);
       transition: background 0.2s, color 0.2s;
     }
-
+ 
     .tag:hover { background: var(--border); color: var(--text); }
     .tag-o { background: #fdf0ea; color: #a04820; border-color: #f0c8b0; }
     .tag-b { background: #eaf0f8; color: #2a5080; border-color: #b0cce8; }
     .tag-g { background: #eaf5ee; color: #1a6038; border-color: #a8d8b8; }
     .tag-w { background: #f8f2e0; color: #7a5a00; border-color: #e0ce90; }
-
+ 
     /* ── Links ── */
     .links-block {
       break-inside: avoid;
       page-break-inside: avoid;
     }
-
+ 
     .card-links { display: flex; gap: 10px; flex-wrap: wrap; }
-
+ 
     .card-link {
       display: inline-flex;
       align-items: center;
@@ -430,23 +456,23 @@
       background: var(--bg2);
       transition: all 0.2s;
     }
-
+ 
     .card-link:hover {
       color: var(--text);
       border-color: var(--accent);
       background: #fdf0ea;
     }
-
+ 
     .card-link svg { width: 14px; height: 14px; flex-shrink: 0; }
-
+ 
     /* ── Blog ── */
     .blog-section {
       margin-bottom: 80px;
       animation: fadeUp 0.6s ease 0.25s both;
     }
-
+ 
     .blog-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
+ 
     .blog-list li a {
       display: flex;
       align-items: center;
@@ -461,20 +487,20 @@
       font-size: 15px;
       transition: all 0.2s;
     }
-
+ 
     .blog-list li a:hover {
       border-color: var(--accent);
       background: #fdf0ea;
       transform: translateX(4px);
     }
-
+ 
     .blog-list li a span { color: var(--muted); font-size: 13px; flex-shrink: 0; }
-
+ 
     /* ── Connect ── */
     .connect-section { animation: fadeUp 0.6s ease 0.3s both; }
-
+ 
     .connect-links { display: flex; gap: 10px; flex-wrap: wrap; }
-
+ 
     .connect-link {
       display: inline-flex;
       align-items: center;
@@ -489,7 +515,7 @@
       background: var(--surface);
       transition: all 0.2s;
     }
-
+ 
     .connect-link:hover {
       color: var(--text);
       border-color: var(--accent);
@@ -497,7 +523,7 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.07);
     }
-
+ 
     /* ── Footer ── */
     footer {
       margin-top: 100px;
@@ -507,34 +533,35 @@
       color: var(--muted);
       font-size: 13px;
     }
-
+ 
     /* ── Animations ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
+ 
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50%       { opacity: 0.35; }
     }
-
+ 
     .project-card:nth-child(1) { animation-delay: 0.2s; }
     .project-card:nth-child(2) { animation-delay: 0.32s; }
     .project-card:nth-child(3) { animation-delay: 0.44s; }
-
+    .project-card:nth-child(4) { animation-delay: 0.56s; }
+ 
     /* ── Print styles ── */
     @media print {
       body::before { display: none; }
       .top-band { display: none; }
-
+ 
       * {
         animation: none !important;
         transition: none !important;
       }
-
+ 
       .wrapper { padding: 24px 20px; max-width: 100%; }
-
+ 
       .project-card { padding: 26px 30px; }
       .project-title { font-size: 22px; margin-bottom: 4px; }
       .project-subtitle { margin-bottom: 18px; font-size: 13px; }
@@ -549,12 +576,13 @@
       .card-divider { margin: 14px 0; }
       .screenshots-block { margin-bottom: 14px; }
       .screenshots img { height: 75px; }
+      .screenshots.one-col img { height: auto; max-height: 260px; }
       .tags-block { margin-bottom: 14px; }
       .tag { padding: 3px 10px; font-size: 10.5px; }
       .card-link { padding: 6px 14px; font-size: 12px; }
       .card-number { margin-bottom: 8px; font-size: 11px; }
       .resume-btn { display: none; }
-
+ 
       /* Force each project card onto its own fresh page */
       .project-card {
         break-inside: avoid !important;
@@ -565,12 +593,12 @@
         border: 1px solid #ddd !important;
         transform: none !important;
       }
-
+ 
       .project-card:first-of-type {
         break-before: auto;
         page-break-before: auto;
       }
-
+ 
       .card-row,
       .metrics-block,
       .screenshots-block,
@@ -580,23 +608,23 @@
         break-inside: avoid !important;
         page-break-inside: avoid !important;
       }
-
+ 
       header, .about-text, .section-label {
         break-inside: avoid;
         page-break-inside: avoid;
       }
-
+ 
       .blog-section { break-before: page; page-break-before: always; }
       .connect-section { break-inside: avoid; page-break-inside: avoid; }
     }
   </style>
 </head>
-
+ 
 <body>
   <div class="top-band"></div>
-
+ 
   <div class="wrapper">
-
+ 
     <!-- Header -->
     <header>
       <h1 class="name">Sanjai <em>Arul</em></h1>
@@ -617,7 +645,7 @@
         Adelaide, Australia · <a href="mailto:a1954418@adelaide.edu.au">a1954418@adelaide.edu.au</a>
       </p>
     </header>
-
+ 
     <!-- About -->
     <section>
       <p class="section-label">About</p>
@@ -630,49 +658,128 @@
         the boundary artifacts, the hypothesis that doesn't survive testing.
       </p>
     </section>
-
+ 
     <!-- Projects -->
     <section class="projects-section">
       <p class="section-label">Projects</p>
-
+ 
       <!-- PROJECT 1 -->
-      <div class="project-card card-orange">
-        <div class="card-number">01</div>
-        <h2 class="project-title">E-Commerce Sales &amp; Delivery Analysis in SQL</h2>
+      <div class="project-card card-warm">
+        <div class="card-number">01 <span class="status-tag">In progress · delivery Nov 2026</span></div>
+        <h2 class="project-title">AI-Powered Startup Assessment Platform</h2>
         <p class="project-subtitle">
-          100,000 real marketplace orders analysed in MySQL - uncovering why a
-          fast-growing business quietly stopped growing
+          Capstone project with an industry partner - a website where founders upload
+          their pitch deck or business plan and get back a report and a score
         </p>
-
+ 
         <div class="card-row">
           <div>
-            <p class="card-section-title orange">Problem &amp; Motivation</p>
+            <p class="card-section-title warm">The Problem</p>
             <p class="card-text">
-              The Olist dataset covers ~100,000 Brazilian e-commerce orders across
-              nine tables and two years. Rather than practising syntax, I set out to
-              answer the questions a business analyst is actually asked: where does
-              revenue come from, do deliveries meet their promises, what drives bad
-              reviews, and do customers ever come back?
+              Startup accelerators and investors get far more applications than they can
+              read properly. Going through them by hand is slow, and two reviewers often
+              score the same pitch differently.<br><br>
+              Our industry partner asked us to build a platform where a founder uploads a
+              pitch deck, business plan or summary, and gets back a written assessment and
+              a <strong>readiness score</strong> - based on the same things a human
+              reviewer would look for.
             </p>
           </div>
           <div>
-            <p class="card-section-title blue">Approach</p>
+            <p class="card-section-title blue">My Role</p>
             <p class="card-text">
-              Built the schema by hand in <strong>MySQL 8</strong> - typed columns,
-              indexed join keys - and loaded 500k+ rows via
-              <strong>LOAD DATA INFILE</strong>, converting blank timestamps to NULL
-              at load time so date arithmetic stayed correct.<br><br>
-              16 analytical queries spanning multi-table joins, CTEs,
-              <strong>CASE WHEN</strong>, <strong>HAVING</strong>, and window
-              functions - <strong>LAG</strong>, <strong>LEAD</strong>,
-              <strong>ROW_NUMBER</strong>, <strong>RANK</strong>,
-              <strong>NTILE</strong>, running totals and moving averages.
+              I'm the <strong>Scrum Master</strong> for a team of five. I plan our sprints
+              in Jira and help run the weekly meeting with the client.<br><br>
+              On the technical side, I build the part that <strong>reads the uploaded
+              files</strong>. It takes PDFs, slide decks and plain text, pulls out the
+              sections and numbers, and passes clean data to the scoring step. Getting
+              useful data out of documents that people wrote by hand is the hardest part
+              of the whole thing.
             </p>
           </div>
         </div>
-
+ 
+        <div class="card-divider"></div>
+ 
+        <div class="card-row">
+          <div>
+            <p class="card-section-title orange">How It Works</p>
+            <p class="card-text">
+              Every founder writes their documents differently, so there is no fixed layout
+              to rely on. My code tidies them all into one shared format.<br><br>
+              The scoring step then uses <strong>LLMs</strong> to check each submission
+              against set criteria and write a short report with a number attached. We
+              build in sprints and agree what to do next at the weekly client meeting,
+              rather than planning everything upfront.
+            </p>
+          </div>
+          <div>
+            <p class="card-section-title green">What I'm Learning</p>
+            <p class="card-text">
+              Building for a client is very different from a university assignment. The
+              scope changes, finishing on time matters more than making it perfect, and
+              the client cares whether the score makes sense - not which model produced it.<br><br>
+              Being Scrum Master has also shown me how much of the work is simply
+              <strong>keeping people moving in the same direction</strong>.
+            </p>
+          </div>
+        </div>
+ 
+        <div class="tags-block">
+          <div class="tags">
+            <span class="tag tag-o">LLMs</span>
+            <span class="tag tag-o">Document Parsing</span>
+            <span class="tag tag-b">Python</span>
+            <span class="tag tag-b">Data Extraction</span>
+            <span class="tag tag-g">Agile / Scrum</span>
+            <span class="tag tag-g">Jira</span>
+            <span class="tag tag-w">Industry Project</span>
+          </div>
+        </div>
+ 
+        <div class="links-block">
+          <p class="metric-note">
+            Full write-up and results to follow after the final delivery in November 2026.
+          </p>
+        </div>
+      </div>
+ 
+      <!-- PROJECT 2 -->
+      <div class="project-card card-orange">
+        <div class="card-number">02</div>
+        <h2 class="project-title">E-Commerce Sales &amp; Delivery Analysis in SQL</h2>
+        <p class="project-subtitle">
+          100,000 real orders analysed in MySQL - finding out why a fast-growing
+          business quietly stopped growing
+        </p>
+ 
+        <div class="card-row">
+          <div>
+            <p class="card-section-title orange">The Problem</p>
+            <p class="card-text">
+              This dataset holds about 100,000 online orders from a Brazilian marketplace,
+              spread across nine tables and two years of trading.<br><br>
+              Instead of just practising SQL, I asked the questions a real analyst gets
+              asked: where does the money come from, do deliveries arrive when promised,
+              what makes customers leave bad reviews, and do they ever come back?
+            </p>
+          </div>
+          <div>
+            <p class="card-section-title blue">What I Did</p>
+            <p class="card-text">
+              I built the database myself in <strong>MySQL 8</strong> - choosing the column
+              types and indexing the keys used for joins. Then I loaded over 500,000 rows
+              with <strong>LOAD DATA INFILE</strong>, turning blank dates into NULL as they
+              loaded so the date calculations stayed correct.<br><br>
+              After that I wrote <strong>16 queries</strong>. They use joins across tables,
+              CTEs, CASE WHEN and HAVING, plus window functions - LAG, LEAD, ROW_NUMBER,
+              RANK and NTILE - along with running totals and moving averages.
+            </p>
+          </div>
+        </div>
+ 
         <div class="metrics-block">
-          <p class="card-section-title green">Headline Findings</p>
+          <p class="card-section-title green">What I Found</p>
           <div class="metrics-row">
             <div class="metric-box o">
               <div class="metric-val">6×</div>
@@ -692,40 +799,44 @@
             </div>
           </div>
           <p class="metric-note">
-            Late orders average 2.57 stars vs 4.29 on-time, with 54% receiving 1–2 stars.
-            Only 2,997 of ~96,000 customers ever ordered twice.
+            Late orders average 2.57 stars, on-time orders 4.29. Over half of all late
+            orders get 1 or 2 stars. Only 2,997 of roughly 96,000 customers ever ordered
+            a second time.
           </p>
         </div>
-
+ 
         <div class="card-divider"></div>
-
+ 
         <div class="card-row">
           <div>
-            <p class="card-section-title warm">Key Challenges</p>
+            <p class="card-section-title warm">Problems I Hit</p>
             <p class="card-text">
-              - Invisible carriage returns from Windows CSVs silently attached to
-              every category name, which would have broken later filters<br>
-              - Partial months at the dataset boundaries producing absurd growth
-              figures (+697,878%)<br>
-              - <code>customer_id</code> being unique per order, not per person -
-              using it would have inflated the retention rate<br>
-              - A weight-vs-satisfaction hypothesis that held only at the extremes
+              - Hidden line-break characters from Windows CSV files were stuck to every
+              category name. You couldn't see them, but they would have broken every
+              filter later on.<br>
+              - The first and last months were incomplete, which made growth look like
+              +697,878%.<br>
+              - <code>customer_id</code> is a new value for every order, not one per
+              person. Using it would have made repeat customers look far higher than
+              they really are.<br>
+              - I tested whether heavier products get worse reviews. It only held true at
+              the extremes, so I dropped the idea.
             </p>
           </div>
           <div>
-            <p class="card-section-title orange">Trade-offs &amp; Learnings</p>
+            <p class="card-section-title orange">What I Learned</p>
             <p class="card-text">
-              Revenue in 2018 sat at a reassuring $1M/month - but month-over-month
-              growth had flatlined near zero. The problem was invisible in the raw
-              numbers and only emerged from a derived metric.<br><br>
-              The findings connect: growth stalled <em>because</em> retention was
-              3%, while late deliveries actively pushed customers away. The analysis
-              is observational, so causation isn't proven - the write-up sets out how
-              I'd verify it.
+              Revenue in 2018 looked healthy at about $1M a month. But when I compared each
+              month to the one before, growth was close to zero. The raw numbers hid it -
+              it only showed up once I calculated the change.<br><br>
+              The findings link together. Growth stalled <em>because</em> only 3% of
+              customers came back, while late deliveries were actively pushing people away.
+              This is observational data, so I can't prove cause and effect. The write-up
+              explains how I would test it properly.
             </p>
           </div>
         </div>
-
+ 
         <div class="tags-block">
           <div class="tags">
             <span class="tag tag-o">SQL</span>
@@ -737,7 +848,7 @@
             <span class="tag tag-w">Business Analysis</span>
           </div>
         </div>
-
+ 
         <div class="links-block">
           <div class="card-links">
             <a class="card-link" href="https://github.com/Sanjai229/olist-sql-analysis" target="_blank">
@@ -751,44 +862,45 @@
           </div>
         </div>
       </div>
-
-      <!-- PROJECT 2 -->
+ 
+      <!-- PROJECT 3 -->
       <div class="project-card card-blue">
-        <div class="card-number">02</div>
+        <div class="card-number">03</div>
         <h2 class="project-title">LLM-based eCommerce Application</h2>
         <p class="project-subtitle">
-          Three intelligent agents for an online cell phone store -
-          advertisement generation, product recommendation, and customer review analysis
+          Three AI agents for an online phone store - writing ads, recommending
+          products, and making sense of customer reviews
         </p>
-
+ 
         <div class="card-row">
           <div>
-            <p class="card-section-title orange">Problem & Motivation</p>
+            <p class="card-section-title orange">The Problem</p>
             <p class="card-text">
-              Running a phone store means managing hundreds of product images,
-              720 product records, and nearly 68,000 customer reviews.
-              Traditional tools - SQL, manual tagging, spreadsheets - don't scale
-              and can't understand natural language. I built three LLM agents to
-              automate the full pipeline from ad creation to business intelligence.
+              An online phone store has hundreds of product photos, 720 products and nearly
+              68,000 customer reviews.<br><br>
+              Tagging photos by hand or reading reviews one by one doesn't scale, and SQL
+              can't understand written English. So I built three LLM agents to handle the
+              whole job - from writing the ads to working out what customers actually think.
             </p>
           </div>
           <div>
-            <p class="card-section-title blue">System Design</p>
+            <p class="card-section-title blue">How It Works</p>
             <p class="card-text">
-              <strong>Task 1</strong> - BLIP2 scans images and generates captions.
-              Qwen2-VL writes tone-controlled slogans overlaid on product images using PIL.<br><br>
-              <strong>Task 2</strong> - TableLLM-7B interprets natural language queries
-              over an enriched dataset. Qwen3-1.7B provides richer recommendations
-              via a Gradio GUI.<br><br>
-              <strong>Task 3</strong> - Qwen3-4B classifies all reviews as
-              Positive / Neutral / Negative, summarises top feedback themes,
-              and generates grounded product improvement suggestions.
+              <strong>Agent 1</strong> - BLIP2 looks at a product photo and describes it.
+              Qwen2-VL then writes a slogan in a chosen tone, and PIL places it on the
+              image.<br><br>
+              <strong>Agent 2</strong> - TableLLM-7B answers questions typed in plain
+              English. Qwen3-1.7B gives fuller recommendations through a simple Gradio
+              web page.<br><br>
+              <strong>Agent 3</strong> - Qwen3-4B sorts every review into Positive, Neutral
+              or Negative, pulls out the main themes, and suggests product improvements
+              based on what customers said.
             </p>
           </div>
         </div>
-
+ 
         <div class="metrics-block">
-          <p class="card-section-title green">Task 3 - Sentiment Analysis Results</p>
+          <p class="card-section-title green">Agent 3 - Review Sorting Results</p>
           <div class="metrics-row">
             <div class="metric-box o">
               <div class="metric-val">88%</div>
@@ -808,35 +920,37 @@
             </div>
           </div>
           <p class="metric-note">
-            Sentiment classified on 67,986 reviews; purchase accuracy measures correct
-            identification of verified-purchase reviews.
+            Measured across 67,986 reviews. Purchase accuracy means how often the model
+            correctly spotted a verified purchase.
           </p>
         </div>
-
+ 
         <div class="card-divider"></div>
-
+ 
         <div class="card-row">
           <div>
-            <p class="card-section-title warm">Key Challenges</p>
+            <p class="card-section-title warm">Problems I Hit</p>
             <p class="card-text">
-              - BLIP2 tokenizer incompatibility with Python 3.12<br>
-              - Regex capturing trailing punctuation in numeric filters<br>
-              - Balancing TableLLM precision vs Qwen3 language quality<br>
-              - Processing 67,986 reviews within GPU memory constraints
+              - BLIP2's tokenizer didn't work with Python 3.12<br>
+              - My regex kept picking up punctuation along with the numbers in price
+              filters<br>
+              - TableLLM was more accurate, but Qwen3 wrote better English, so I had to
+              choose model by task<br>
+              - Running all 67,986 reviews without running out of GPU memory
             </p>
           </div>
           <div>
-            <p class="card-section-title orange">Trade-offs & Learnings</p>
+            <p class="card-section-title orange">What I Learned</p>
             <p class="card-text">
-              Model selection must match task type - BLIP2 excels at captioning
-              but struggles with creative generation. The key insight: LLMs
-              interpret ambiguous natural language that SQL simply cannot handle.
-              A single Qwen3-4B model simultaneously classified, summarised,
-              and generated insights in one inference pass.
+              The model has to match the job. BLIP2 is very good at describing images but
+              poor at writing creatively.<br><br>
+              The bigger lesson: LLMs can handle vague, everyday language that SQL simply
+              cannot. And one Qwen3-4B model did the sorting, the summarising and the
+              suggestions all in a single pass.
             </p>
           </div>
         </div>
-
+ 
         <div class="screenshots-block">
           <div class="screenshots">
             <img src="./assets/Screenshot 2026-06-06 222535.png" alt="Advertisement Agent">
@@ -844,7 +958,7 @@
             <img src="./assets/Screenshot 2026-06-06 225511.png" alt="Review Analysis">
           </div>
         </div>
-
+ 
         <div class="tags-block">
           <div class="tags">
             <span class="tag tag-o">BLIP2</span>
@@ -857,7 +971,7 @@
             <span class="tag tag-w">Python</span>
           </div>
         </div>
-
+ 
         <div class="links-block">
           <div class="card-links">
             <a class="card-link" href="https://github.com/Sanjai229" target="_blank">
@@ -871,90 +985,120 @@
           </div>
         </div>
       </div>
-
-      <!-- PROJECT 3 -->
+ 
+      <!-- PROJECT 4 -->
       <div class="project-card card-green">
-        <div class="card-number">03</div>
-        <h2 class="project-title">Customer Churn Prediction</h2>
+        <div class="card-number">04</div>
+        <h2 class="project-title">Delivery Performance Dashboard in Power BI</h2>
         <p class="project-subtitle">
-          Web application giving non-technical users real-time churn predictions
-          via a FastAPI backend and Random Forest classifier
+          Turning the SQL findings into a one-page dashboard that tells leadership
+          where to act, not just what happened
         </p>
-
+ 
         <div class="card-row">
           <div>
-            <p class="card-section-title blue">Problem & Motivation</p>
+            <p class="card-section-title green">The Problem</p>
             <p class="card-text">
-              Customer churn predictions rarely make it into real systems.
-              I built a web app where non-technical business users input
-              customer details through a form and receive real-time churn
-              probability - bridging the gap between ML model and business decision.
+              Project 02 found that late deliveries push customers into leaving bad
+              reviews. But a finding written in a report doesn't get acted on.<br><br>
+              A manager doesn't have time to read a page of numbers. They need to open
+              one screen and immediately see <strong>which states to deal with
+              first</strong>. So I rebuilt the analysis as a dashboard.
             </p>
           </div>
           <div>
-            <p class="card-section-title orange">System Design</p>
+            <p class="card-section-title blue">How I Built It</p>
             <p class="card-text">
-              An HTML form collects customer inputs and sends them to a
-              <strong>FastAPI backend</strong> where features are scaled and encoded.
-              A trained <strong>Random Forest classifier</strong> returns churn
-              probabilities rendered via Jinja2 templates dynamically in the browser.
+              I wrote a SQL query that flattens nine tables into one row per order, with
+              the lateness, review score and order value already worked out. That gave me
+              <strong>96,470 clean rows</strong> to load into Power BI.<br><br>
+              In Power BI I removed duplicates, cut the incomplete months, and wrote
+              <strong>DAX measures</strong> for on-time rate, bad review rate and revenue
+              at risk. A calculated column groups every order into a lateness bucket.
             </p>
           </div>
         </div>
-
-        <div class="card-row">
-          <div>
-            <p class="card-section-title warm">Key Challenges</p>
-            <p class="card-text">
-              - Feature name consistency between training and serving<br>
-              - Manual preprocessing pipeline reliability<br>
-              - Deployment-time parsing and dependency issues
-            </p>
+ 
+        <div class="metrics-block">
+          <p class="card-section-title orange">What It Shows</p>
+          <div class="metrics-row">
+            <div class="metric-box g">
+              <div class="metric-val">91.9%</div>
+              <div class="metric-label">On-time rate</div>
+            </div>
+            <div class="metric-box o">
+              <div class="metric-val">$2.28M</div>
+              <div class="metric-label">Revenue at risk</div>
+            </div>
+            <div class="metric-box b">
+              <div class="metric-val">23.1%</div>
+              <div class="metric-label">Worst state late rate</div>
+            </div>
+            <div class="metric-box o">
+              <div class="metric-val">4.31 → 1.70</div>
+              <div class="metric-label">Review score as orders slip</div>
+            </div>
           </div>
-          <div>
-            <p class="card-section-title green">Trade-offs & Learnings</p>
-            <p class="card-text">
-              Explicit preprocessing improved debuggability and reliability.
-              The main lesson: deployment issues arise more from
-              <strong>data mismatches</strong> than model architecture choices.
-            </p>
-          </div>
+          <p class="metric-note">
+            São Paulo alone has $1.56M of revenue sitting on bad reviews. Maranhão is a
+            smaller state but 23.1% of its orders arrive late.
+          </p>
         </div>
-
+ 
         <div class="screenshots-block">
-          <div class="screenshots two-col">
-            <img src="./assets/churn_output_1.png" alt="Churn Output 1">
-            <img src="./assets/churn_output_2.png" alt="Churn Output 2">
+          <div class="screenshots one-col">
+            <img src="./assets/powerbi_delivery_dashboard.png" alt="Power BI delivery performance dashboard">
           </div>
         </div>
-
+ 
+        <div class="card-divider"></div>
+ 
+        <div class="card-row">
+          <div>
+            <p class="card-section-title warm">Design Decisions</p>
+            <p class="card-text">
+              The main table only lists states with enough orders to be meaningful, sorted
+              by money at risk. Anything above an 8% late rate turns red, so the eye goes
+              straight to the problem rows.<br><br>
+              The bar chart goes green to red as orders get later. You can read the whole
+              story without looking at a single number.
+            </p>
+          </div>
+          <div>
+            <p class="card-section-title green">What I Learned</p>
+            <p class="card-text">
+              An experienced BI manager gave me the advice that shaped this: move from
+              <strong>"interesting to know" to "here is what to do"</strong>. My first
+              instinct was to chart everything. Instead, every visual on the page has to
+              survive one question - what would someone do differently after seeing this?<br><br>
+              Anything that didn't answer it got cut.
+            </p>
+          </div>
+        </div>
+ 
         <div class="tags-block">
           <div class="tags">
-            <span class="tag tag-b">Python</span>
-            <span class="tag tag-b">FastAPI</span>
-            <span class="tag tag-o">Random Forest</span>
-            <span class="tag tag-o">Scikit-learn</span>
-            <span class="tag tag-g">Jinja2</span>
-            <span class="tag tag-w">Model Deployment</span>
+            <span class="tag tag-g">Power BI</span>
+            <span class="tag tag-g">DAX</span>
+            <span class="tag tag-o">SQL</span>
+            <span class="tag tag-b">Power Query</span>
+            <span class="tag tag-b">Data Modelling</span>
+            <span class="tag tag-w">Dashboard Design</span>
           </div>
         </div>
-
+ 
         <div class="links-block">
           <div class="card-links">
-            <a class="card-link" href="https://github.com/Sanjai229/Customer-Churn-Prediction" target="_blank">
+            <a class="card-link" href="https://github.com/Sanjai229/olist-sql-analysis" target="_blank">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
               View GitHub
-            </a>
-            <a class="card-link" href="https://medium.com/@sanjaicena123/customer-churn-prediction-54f5be1fec7f" target="_blank">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-              Read Blog
             </a>
           </div>
         </div>
       </div>
-
+ 
     </section>
-
+ 
     <!-- Writing -->
     <section class="blog-section">
       <p class="section-label">Writing</p>
@@ -979,7 +1123,7 @@
         </li>
       </ul>
     </section>
-
+ 
     <!-- Connect -->
     <section class="connect-section">
       <p class="section-label">Connect</p>
@@ -1002,11 +1146,11 @@
         </a>
       </div>
     </section>
-
+ 
     <footer>
       <p>Sanjai Arul · Adelaide University · 2026</p>
     </footer>
-
+ 
   </div>
 </body>
 </html>
